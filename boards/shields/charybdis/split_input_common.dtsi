@@ -3,7 +3,7 @@
 
 #define WIN 1
 #define SYMBOLS 2
-#define NUMBERS 9
+#define NUMBERS 18
 #define NAV 4
 #define FUNCTION 5
 #define BLUETOOTH 6
@@ -34,7 +34,7 @@
 
     scroll {
       layers = <SCRL>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 9>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_scaler 1 18>, <&zip_xy_to_scroll_mapper>;
     };
 
   };
@@ -45,7 +45,7 @@
 
     scroll {
       layers = <SCRL>;
-      input-processors = <&zip_xy_scaler 1 9>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 18>, <&zip_xy_to_scroll_mapper>;
     };
 
   };
