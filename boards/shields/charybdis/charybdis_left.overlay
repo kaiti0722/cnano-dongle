@@ -21,7 +21,9 @@
 		, <&pro_micro 9 GPIO_ACTIVE_HIGH>
 		;
 };
-
+&spi0 {
+    status = "okay";
+};
 &trackball_split2 {
 	device = <&trackball2>;
 };
