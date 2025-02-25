@@ -2,8 +2,6 @@ if SHIELD_CHARYBDIS_DONGLE
 
 config ZMK_KEYBOARD_NAME
 	default "Charybdis"
-config BT_MAX_CONN
-    default 2
 
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
