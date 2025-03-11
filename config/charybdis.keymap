@@ -91,16 +91,6 @@
             bindings = <&kp BSPC>, <&key_repeat>;
         };
 
-        tsl: behavior_trackball_scroll {
-            compatible = "zmk,behavior-point-device-incremental";
-            #trackball-binding-cells = <0>;
-            mode = "scroll-mode";
-            flavor = "default";
-            scale_mode = "dividor";
-            scale_factor = <4>;
-            smoothing;
-        };
-
         tkp_fast: behavior_trackball_key_press {
             compatible = "zmk,behavior-point-device-directional";
             #trackball-binding-cells = <4>;
