@@ -17,7 +17,10 @@
 #define SCRL 9
 #define BIRO 10
 
-&caps_word { continue-list = <NB_UNDERSCORE NB_MINUS WNB_UNDERSCORE WNB_MINUS BACKSPACE DEL>; };
+&caps_word { 
+    continue-list = <NB_UNDERSCORE NB_MINUS WNB_UNDERSCORE WNB_MINUS BACKSPACE DEL>; 
+    ignore-list = <LCLK,RLCLK>;
+    };
 
 // Change sticky key defaults
 
