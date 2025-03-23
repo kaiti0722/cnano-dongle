@@ -179,7 +179,7 @@
 
         curles: curles {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp NB_LBRC>, <&kp NB_RBRC>;
+            bindings = <&kp NB_LBRC>, <&kp NB_RBRC>;0tttljjjlyt
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
