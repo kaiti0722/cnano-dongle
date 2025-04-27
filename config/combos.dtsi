@@ -254,7 +254,7 @@
 
         thumb_r {
             timeout-ms = <50>;
-            bindings = <&sk LA(LC(LG(LEFT_SHIFT)))>;
+            bindings = <&sk LA(LG(LEFT_SHIFT))>; // MEH
             key-positions = <33 32>;
         };
 
