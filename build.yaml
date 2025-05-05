@@ -18,11 +18,11 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: seeeduino_xiao_ble
     shield: charybdis_dongle dongle_display
-  - board: nice_nano_v2
+  - board: seeeduino_xiao_ble
     shield: charybdis_left
-  - board: nice_nano_v2
+  - board: seeeduino_xiao_ble
     shield: charybdis_right
-  - board: nice_nano_v2
+  - board: seeeduino_xiao_ble
     shield: settings_reset
