@@ -5,28 +5,31 @@
 &kscan0 {
   compatible = "zmk,kscan-gpio-matrix";
   
+  // 4行5列用に変更されたGPIO設定
   col-gpios
-    = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 変更
-    , <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 変更
-    , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 変更
-    , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 変更
-    , <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 変更
-    , <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 変更
+    = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // 列0
+    , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列1
+    , <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列2
+    , <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列3
+    , <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列4
     ;
 
   row-gpios
-    = <&xiao_d 6 GPIO_ACTIVE_HIGH>  // 変更
-    , <&gpio0 9 GPIO_ACTIVE_HIGH>  // 変更
-    , <&gpio0 10 GPIO_ACTIVE_HIGH>  // 変更
-    , <&gpio0 16 GPIO_ACTIVE_HIGH>  // 変更
+    = <&xiao_d 0 GPIO_ACTIVE_HIGH>   // 行0
+    , <&xiao_d 1 GPIO_ACTIVE_HIGH>   // 行1
+    , <&xiao_d 2 GPIO_ACTIVE_HIGH>   // 行2
+    , <&xiao_d 3 GPIO_ACTIVE_HIGH>   // 行3
     ;
 };
+
 &spi0 {
     status = "okay";
 };
+
 &trackball_split2 {
 	device = <&trackball2>;
 };
+
 &trackball_split { 
 	status = "disabled"; 
 };
