@@ -18,11 +18,11 @@
 #
 ---
 include:
-  - board: seeeduino_xiao_ble
+  - board: seeeduino_xiao_ble_sense
     shield: charybdis_dongle dongle_display
-  - board: seeeduino_xiao_ble
+  - board: seeeduino_xiao_ble_sense
     shield: charybdis_left
-  - board: seeeduino_xiao_ble
+  - board: seeeduino_xiao_ble_sense
     shield: charybdis_right
-  - board: seeeduino_xiao_ble
+  - board: seeeduino_xiao_ble_sense
     shield: settings_reset
