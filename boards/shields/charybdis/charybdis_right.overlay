@@ -11,11 +11,11 @@
   
   // 4行5列用に変更されたGPIO設定
   col-gpios
-    = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // 列0
-    , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列1
-    , <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列2
-    , <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列3
-    , <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列4
+    = <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // 列0
+    , <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列1
+    , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列2
+    , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列3
+    , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // 列4
     ;
 
   row-gpios
