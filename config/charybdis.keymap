@@ -24,6 +24,27 @@
             key-positions = <10 11>;
             bindings = <&kp TAB>;
         };
+
+        // O + P 同時押し → 伸ばし棒  
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <8 9>;
+            bindings = <&kp MINUS>;
+        };
+
+        // L + 右 同時押し → DEL
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp DELETE>;
+        };
+
+        // 左クリック + 右クリック 同時押し → 中央クリック
+        combo_middle_click {
+            timeout-ms = <50>;
+            key-positions = <25 26>;
+            bindings = <&mkp MCLK>;
+        };
     };
 };
 
@@ -34,8 +55,8 @@
         default_layer {
             bindings = <
   &kp Q    &kp W      &kp E     &kp R    &kp T       &kp Y    &kp U     &kp I         &kp O     &kp P
-  &kp A    &kp S      &kp D     &kp F    &kp G       &kp H    &kp J     &kp K         &kp L     &kp MINUS
-  &kp Z    &kp X      &kp C     &kp V    &kp B       &kp N    &kp M     &mkp LCLK     &mkp RCLK &kp BACKSPACE
+  &kp A    &kp S      &kp D     &kp F    &kp G       &kp H    &kp J     &kp K         &kp L     &kp BACKSPACE
+  &kp Z    &kp X      &kp C     &kp V    &kp B       &kp N    &kp M     &mkp LCLK     &mkp RCLK &kp LA(GRAVE)
   &none    &kp LSHIFT &kp SPACE &mo 1    &kp LCTRL   &kp LWIN &mo 2     &kp LA(GRAVE) &kp ENTER &none
             >;
         };
