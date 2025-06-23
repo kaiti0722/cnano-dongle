@@ -8,6 +8,26 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        
+        // Q + W 同時押し → ESC
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+        };
+        
+        // A + S 同時押し → TAB  
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&kp TAB>;
+        };
+    };
+};
+
+/ {
     keymap {
         compatible = "zmk,keymap";
 
