@@ -18,23 +18,5 @@
   &none    &mo 2  &mo 1     &kp BSPC &none       &none    &kp ENTER &kp SPACE &mo 2     &none
             >;
         };
-
-        function_layer {
-            bindings = <
-  &kp N1   &kp N2  &kp N3   &kp N4   &kp N5      &kp N6   &kp N7    &kp N8    &kp N9    &kp N0
-  &kp F1   &kp F2  &kp F3   &kp F4   &kp F5      &kp F6   &kp F7    &kp F8    &kp F9    &kp F10
-  &kp F11  &kp F12 &none    &none    &none       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none
-  &none    &trans  &trans   &trans   &none       &none    &trans    &trans    &trans    &none
-            >;
-        };
-
-        symbols_layer {
-            bindings = <
-  &kp EXCL   &kp AT      &kp HASH   &kp DOLLAR   &kp PERCENT    &kp CARET     &kp AMPERSAND &kp ASTERISK  &kp LPAR      &kp RPAR
-  &kp GRAVE  &kp TILDE   &kp UNDER  &kp MINUS    &kp PLUS       &kp EQUAL     &kp LBKT      &kp RBKT      &kp BACKSLASH &kp PIPE
-  &kp ESC    &none       &kp LBRC   &kp RBRC     &kp DQT        &mkp LCLK     &mkp RCLK     &mkp MCLK     &kp SQT       &none
-  &none      &trans      &trans     &trans       &none          &none         &trans        &trans        &trans        &none
-            >;
-        };
     };
 };
