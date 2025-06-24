@@ -26,7 +26,7 @@
         // Layer 1: 数字・記号レイヤー
         layer_1 {
             bindings = <
-  &kp N1   &kp N2     &kp N3    &kp N4   &kp N5      &kp N6     &kp N7    &kp N8      &kp N9    &kp N0
+  &kp EXCL   &kp AT     &kp POUND    &kp DLLR   &kp PRCNT      &kp CARET     &kp AMPS    &kp ASTRK     &kp LPAR    &kp RPAR
   &kp EXCL &kp AT     &kp HASH  &kp DLLR &kp PRCNT   &kp CARET  &kp AMPS  &kp ASTRK   &kp LPAR  &kp RPAR
   &kp TAB  &none      &none     &none    &none       &none      &none     &none       &none     &kp DELETE
   &none    &kp LSHIFT &kp SPACE &trans   &kp LCTRL   &kp PERIOD &mo 2     &kp COMMA   &kp ENTER &none
@@ -36,10 +36,10 @@
         // Layer 2: ナビゲーション・ファンクションレイヤー
         layer_2 {
             bindings = <
-  &kp F1   &kp F2     &kp F3    &kp F4   &kp F5      &kp F6     &kp F7    &kp F8      &kp F9    &kp F10
-  &kp ESC  &none      &none     &none    &none       &kp LEFT   &kp DOWN  &kp UP      &kp RIGHT &kp F11
-  &kp CAPS &none      &none     &none    &none       &kp HOME   &kp PG_DN &kp PG_UP   &kp END   &kp F12
-  &none    &kp LSHIFT &kp SPACE &mo 1    &kp LCTRL   &kp PERIOD &trans    &kp COMMA   &kp ENTER &none
+  &kp F1   &kp F2     &kp N1    &kp N2   &kp N3      &kp F6     &kp F7    &kp F8      &kp F9    &kp F10
+  &kp ESC  &none      &kp N4    &kp N5   &kp N6       &kp LEFT   &kp DOWN  &kp UP      &kp RIGHT &kp F11
+  &kp CAPS &none      &kp N7    &kp N8   &kp N9       &kp HOME   &kp PG_DN &kp PG_UP   &kp END   &kp F12
+  &none    &kp N0 &kp SPACE &mo 1    &kp LCTRL   &kp PERIOD &trans    &kp COMMA   &kp ENTER &none
             >;
         };
     };
