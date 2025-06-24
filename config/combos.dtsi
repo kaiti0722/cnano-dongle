@@ -49,9 +49,9 @@
 #define POS_SPC 32   // SPACE
 #define POS_MO1 33   // mo 1
 #define POS_LCT 34   // LCTRL
-#define POS_DOT 35   // PERIOD
+#define POS_COM 35   // PERIOD
 #define POS_MO2 36   // mo 2
-#define POS_COM 37   // COMMA
+#define POS_DOT 37   // COMMA
 #define POS_ENT 38   // ENTER
 
 // ═══════════════════════════════════════════════════════════════
