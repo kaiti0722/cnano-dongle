@@ -1,3 +1,4 @@
+/ {
     behaviors {
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
@@ -229,3 +230,4 @@
             label = "HMR_SHIFT";
         };
     };
+};
