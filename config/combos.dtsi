@@ -133,8 +133,8 @@
         CMB(sem, POS_F, POS_G, &kp SEMICOLON)   // F + G → ;
         CMB(col, POS_H, POS_J, &kp COLON)       // H + J → :
 
-        CMB(que, POS_N, POS_M, &kp SEMICOLON)   // N + M → ?
-        CMB(sla, POS_M, POS_LCK, &kp COLON)     // M + 左クリック → /
+        CMB(que, POS_N, POS_M, &kp &kp QMARK)   // N + M → ?
+        CMB(sla, POS_M, POS_LCK, &kp FSLH)     // M + 左クリック → /
         CMB(equ, POS_V, POS_B, &kp EQUAL)       // R + T → =
         CMB(pls, POS_C, POS_V, &kp PLUS)        // Y + U → +
 
