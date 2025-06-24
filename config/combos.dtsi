@@ -108,5 +108,23 @@
         CMB(vcr, POS_LCT, POS_MO1, &kp LC(V))   // CTRL + MO1 → ctrl(V)
         CMB(zcr, POS_SPC, POS_MO1, &kp LC(X))   // SPACE + MO1 → ctrl(X)
                                                 // ctrl + A → SHIFT + CTRLは既存ショートなので使用せず
+
+        // ファンクションキー（左手）
+        CMB(f1, POS_Q, POS_A, &kp F1)           // Q + A → F1
+        CMB(f2, POS_W, POS_S, &kp F2)           // W + S → F2
+        CMB(f3, POS_E, POS_D, &kp F3)           // E + D → F3
+        CMB(f4, POS_R, POS_F, &kp F4)           // R + F → F4
+        CMB(f5, POS_T, POS_G, &kp F5)           // T + G → F5
+
+        // ファンクションキー（右手）
+        CMB(f6, POS_Y, POS_H, &kp F6)           // Y + H → F6
+        CMB(f7, POS_U, POS_J, &kp F7)           // U + J → F7
+        CMB(f8, POS_I, POS_K, &kp F8)           // I + K → F8
+        CMB(f9, POS_O, POS_L, &kp F9)           // O + L → F9
+        CMB(f10, POS_P, POS_MIN, &kp F10)       // P + MINUS → F10
+
+        // ファンクションキー（特殊）
+        CMB(f11, POS_G, POS_B, &kp F11)         // G + B → F11
+        CMB(f12, POS_N, POS_H, &kp F12)         // N + H → F12
     };
 };
