@@ -5,54 +5,54 @@
  */
 
 // ═══════════════════════════════════════════════════════════════
-//                        キー位置定義（シンプル命名）
+//                        キー位置定義（競合回避）
 // ═══════════════════════════════════════════════════════════════
 
 // 上段（Row 0）
-#define Q 0
-#define W 1
-#define E 2
-#define R 3
-#define T 4
-#define Y 5
-#define U 6
-#define I 7
-#define O 8
-#define P 9
+#define POS_Q 0
+#define POS_W 1
+#define POS_E 2
+#define POS_R 3
+#define POS_T 4
+#define POS_Y 5
+#define POS_U 6
+#define POS_I 7
+#define POS_O 8
+#define POS_P 9
 
 // ホーム行（Row 1）
-#define A 10
-#define S 11
-#define D 12
-#define F 13
-#define G 14
-#define H 15
-#define J 16
-#define K 17
-#define L 18
-#define MIN 19  // MINUS
+#define POS_A 10
+#define POS_S 11
+#define POS_D 12
+#define POS_F 13
+#define POS_G 14
+#define POS_H 15
+#define POS_J 16
+#define POS_K 17
+#define POS_L 18
+#define POS_MIN 19  // MINUS
 
 // 下段（Row 2）
-#define Z 20
-#define X 21
-#define C 22
-#define V 23
-#define B 24
-#define N 25
-#define M 26
-#define LCK 27  // LCLK
-#define RCK 28  // RCLK
-#define BSP 29  // BACKSPACE
+#define POS_Z 20
+#define POS_X 21
+#define POS_C 22
+#define POS_V 23
+#define POS_B 24
+#define POS_N 25
+#define POS_M 26
+#define POS_LCK 27  // LCLK
+#define POS_RCK 28  // RCLK
+#define POS_BSP 29  // BACKSPACE
 
 // 親指行（Row 3）
-#define LSH 31   // LSHIFT
-#define SPC 32   // SPACE
-#define MO1 33   // mo 1
-#define LCT 34   // LCTRL
-#define DOT 35   // PERIOD
-#define MO2 36   // mo 2
-#define COM 37   // COMMA
-#define ENT 38   // ENTER
+#define POS_LSH 31   // LSHIFT
+#define POS_SPC 32   // SPACE
+#define POS_MO1 33   // mo 1
+#define POS_LCT 34   // LCTRL
+#define POS_DOT 35   // PERIOD
+#define POS_MO2 36   // mo 2
+#define POS_COM 37   // COMMA
+#define POS_ENT 38   // ENTER
 
 // ═══════════════════════════════════════════════════════════════
 //                        マクロ関数（タイムアウト50固定）
@@ -91,44 +91,44 @@
         // ナビゲーション系（全レイヤー有効）
         // ──────────────────────────────────────────────────────────
         
-        CMB(esc, Q, W, &kp ESC)         // Q + W → ESC
-        CMB(tab, A, S, &kp TAB)         // A + S → TAB
-        CMB(win, Z, X, &kp LWIN)        // Z + X → WIN
-        CMB(del, O, P, &kp DELETE)      // O + P → DELETE
-        CMB(ime, F, J, &kp LA(GRAVE))   // F + J → 半角全角切り替え
+        CMB(esc, POS_Q, POS_W, &kp ESC)         // Q + W → ESC
+        CMB(tab, POS_A, POS_S, &kp TAB)         // A + S → TAB
+        CMB(win, POS_Z, POS_X, &kp LWIN)        // Z + X → WIN
+        CMB(del, POS_O, POS_P, &kp DELETE)      // O + P → DELETE
+        CMB(ime, POS_F, POS_J, &kp LA(GRAVE))   // F + J → 半角全角切り替え
         
         // ──────────────────────────────────────────────────────────
         // 編集系
         // ──────────────────────────────────────────────────────────
         
-        CMB(ent, K, L, &kp ENTER)       // K + L → ENTER
-        CMB(bsp, V, B, &kp BSPC)        // V + B → BACKSPACE
+        CMB(ent, POS_K, POS_L, &kp ENTER)       // K + L → ENTER
+        CMB(bsp, POS_V, POS_B, &kp BSPC)        // V + B → BACKSPACE
         
         // ──────────────────────────────────────────────────────────
         // マウス操作系（Layer 0のみ）
         // ──────────────────────────────────────────────────────────
         
-        CMBL(mid, LCK, RCK, &mkp MCLK, 0)  // 左クリック + 右クリック → 中央クリック
+        CMBL(mid, POS_LCK, POS_RCK, &mkp MCLK, 0)  // 左クリック + 右クリック → 中央クリック
         
         // ──────────────────────────────────────────────────────────
         // 今後追加用テンプレート
         // ──────────────────────────────────────────────────────────
         
-        // CMB(copy, C, D, &kp LC(C))     // C + D → Ctrl+C
-        // CMB(paste, V, N, &kp LC(V))    // V + N → Ctrl+V
-        // CMB(save, S, D, &kp LC(S))     // S + D → Ctrl+S
-        // CMB(undo, Z, A, &kp LC(Z))     // Z + A → Ctrl+Z
+        // CMB(copy, POS_C, POS_D, &kp LC(C))     // C + D → Ctrl+C
+        // CMB(paste, POS_V, POS_N, &kp LC(V))    // V + N → Ctrl+V
+        // CMB(save, POS_S, POS_D, &kp LC(S))     // S + D → Ctrl+S
+        // CMB(undo, POS_Z, POS_A, &kp LC(Z))     // Z + A → Ctrl+Z
         
         // 数字系
-        // CMB(num0, M, N, &kp N0)        // M + N → 0
-        // CMB(num1, Q, A, &kp N1)        // Q + A → 1
-        // CMB(num2, W, S, &kp N2)        // W + S → 2
+        // CMB(num0, POS_M, POS_N, &kp N0)        // M + N → 0
+        // CMB(num1, POS_Q, POS_A, &kp N1)        // Q + A → 1
+        // CMB(num2, POS_W, POS_S, &kp N2)        // W + S → 2
         
         // 記号系
-        // CMB(excl, E, R, &kp EXCL)      // E + R → !
-        // CMB(ques, U, I, &kp QMARK)     // U + I → ?
+        // CMB(excl, POS_E, POS_R, &kp EXCL)      // E + R → !
+        // CMB(ques, POS_U, POS_I, &kp QMARK)     // U + I → ?
         
         // 3キーCombo
-        // CMB3(cad, Q, W, E, &kp LC(LA(DELETE)))  // Ctrl+Alt+Del
+        // CMB3(cad, POS_Q, POS_W, POS_E, &kp LC(LA(DELETE)))  // Ctrl+Alt+Del
     };
 };
