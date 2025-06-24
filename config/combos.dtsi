@@ -106,7 +106,7 @@
         //左親指
         CMB(ccr, POS_LSH, POS_SPC, &kp LC(C))   // SHIFT + SPACE → ctrl(C)
         CMB(vcr, POS_LCT, POS_MO1, &kp LC(V))   // CTRL + MO1 → ctrl(V)
-        CMB(zcr, POS_SPC, POS_MO1, &kp LC(Z))   // SPACE + MO1 → ctrl(Z)
+        CMB(zcr, POS_SPC, POS_MO1, &kp LC(X))   // SPACE + MO1 → ctrl(X)
                                                 // ctrl + A → SHIFT + CTRLは既存ショートなので使用せず
     };
 };
