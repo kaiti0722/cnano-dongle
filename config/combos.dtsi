@@ -54,24 +54,6 @@
 #define POS_COM 37   // COMMA
 #define POS_ENT 38   // ENTER
 
-// ──────────────────────────────────────────────────────────
-// マクロ定義（combos.dtsi内に直接記述）
-// ──────────────────────────────────────────────────────────
-    
-    behaviors {
-        shift_mclk: shift_middle_click {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LSHIFT>     // 1. シフトを押す
-                , <&macro_press &mkp MCLK>      // 2. 中央クリックを押す
-                , <&macro_pause_for_release>    // 3. ユーザーがリリースまで待機
-                , <&macro_release &mkp MCLK>    // 4. 中央クリックを離す
-                , <&macro_release &kp LSHIFT>   // 5. シフトを離す
-                ;
-        };
-    };
-
 // ═══════════════════════════════════════════════════════════════
 //                        マクロ関数（タイムアウト50固定）
 // ═══════════════════════════════════════════════════════════════
