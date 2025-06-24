@@ -54,6 +54,24 @@
 #define POS_COM 37   // COMMA
 #define POS_ENT 38   // ENTER
 
+// ──────────────────────────────────────────────────────────
+// マクロ定義（combos.dtsi内に直接記述）
+// ──────────────────────────────────────────────────────────
+    
+    behaviors {
+        shift_mclk: shift_middle_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHIFT>     // 1. シフトを押す
+                , <&macro_press &mkp MCLK>      // 2. 中央クリックを押す
+                , <&macro_pause_for_release>    // 3. ユーザーがリリースまで待機
+                , <&macro_release &mkp MCLK>    // 4. 中央クリックを離す
+                , <&macro_release &kp LSHIFT>   // 5. シフトを離す
+                ;
+        };
+    };
+
 // ═══════════════════════════════════════════════════════════════
 //                        マクロ関数（タイムアウト50固定）
 // ═══════════════════════════════════════════════════════════════
@@ -90,12 +108,23 @@
         //右１
         CMB(ime, POS_O, POS_P, &kp LA(GRAVE))   // O + P → 半角全角切り替え
         CMB(del, POS_L, POS_MIN, &kp DELETE)    // L + ハイフン → DELETE
-        CMB(smk, POS_RCK, POS_BSP, &kp DELETE)  // 右クリック + BS → SHIFT+中央クリック
+        CMB(smk, POS_RCK, POS_BSP, &shift_mclk)  // 右クリック + BS → SHIFT+中央クリック
 
         //左１
         CMB(esc, POS_Q, POS_W, &kp ESC)         // Q + W → ESC
         CMB(tab, POS_A, POS_S, &kp TAB)         // A + S → TAB
         CMB(win, POS_Z, POS_X, &kp LWIN)        // Z + X → WIN
 
+        //右親指
+        CMB(uar, POS_COM, POS_DOT, &kp UP)      // カンマ + ピリオド → 上矢印
+        CMB(dar, POS_MO2, POS_ENT, &kp DOWN)    // MO2 + エンター → 下矢印
+        CMB(rar, POS_DOT, POS_ENT, &kp RIGHT)   // ピリオド + エンター → 右矢印
+        CMB(lar, POS_COM, POS_MO2, &kp LEFT)    // カンマ + MO2 → 左矢印
+
+        //左親指
+        CMB(ccr, POS_LSH, POS_SPC, &kp LC(C))   // SHIFT + SPACE → ctrl(C)
+        CMB(vcr, POS_LCT, POS_MO1, &kp LC(V))   // CTRL + MO1 → ctrl(V)
+        CMB(zcr, POS_SPC, POS_MO1, &kp LC(Z))   // SPACE + MO1 → ctrl(Z)
+                                                // ctrl + A → SHIFT + CTRLは既存ショートなので使用せず
     };
 };
