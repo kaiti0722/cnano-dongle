@@ -8,6 +8,12 @@
  *   Z(20) X(21) C(22) V(23) B(24)    N(25) M(26) ,(27) .(28) /(29)
  */
 
+// ═══════════════════════════════════════════════════════════════
+//                        COMBO設定値
+// ═══════════════════════════════════════════════════════════════
+
+#define COMBO_TIMEOUT 50      // 基本タイムアウト（ms）
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -18,72 +24,52 @@
         
         // Q + W → ESC
         combo_esc {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
+            layers = <1>;  // Layer 1でのみ有効
         };
-        
         // A + S → TAB
         combo_tab {
-            timeout-ms = <50>;
-            key-positions = <10 11>;
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <20 21>;
             bindings = <&kp TAB>;
+            layers = <1>;  // Layer 1でのみ有効
         };
-        
-        // ──────────────────────────────────────────────────────────
-        // 削除系
-        // ──────────────────────────────────────────────────────────
-        
+        // Z + X → WIN
+        combo_win {
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <10 11>;
+            bindings = <&kp LWIN>;
+            layers = <1>;  // Layer 1でのみ有効
+        };
         // O + P → DELETE（前方削除）
-        combo_delete {
-            timeout-ms = <50>;
+        combo_del {
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <8 9>;
             bindings = <&kp DELETE>;
+            layers = <1>;  // Layer 1でのみ有効
         };
-        
-        // ──────────────────────────────────────────────────────────
-        // IME切り替え系
-        // ──────────────────────────────────────────────────────────
-        
-        // F + J → 半角全角切り替え（Alt + `）
-        combo_ime_toggle {
+        // L + ; → 半角全角切り替え（COMBO_TIMEOUT）
+        combo_hankaku {
             timeout-ms = <50>;
-            key-positions = <13 16>;
+            key-positions = <18 19>;
             bindings = <&kp LA(GRAVE)>;
+            layers = <1>;  // Layer 1でのみ有効
         };
-        
-        // ──────────────────────────────────────────────────────────
-        // マウス操作系（Layer 2で有効）
-        // ──────────────────────────────────────────────────────────
-        
         // 左クリック + 右クリック → 中央クリック
-        combo_middle_click {
-            timeout-ms = <50>;
-            key-positions = <25 26>;
+        combo_middle {
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <27 28>;
             bindings = <&mkp MCLK>;
-            layers = <2>;  // Layer 2でのみ有効
+            layers = <1>;  // Layer 1でのみ有効
         };
-        
-        // ──────────────────────────────────────────────────────────
-        // 編集系（今後追加用）
-        // ──────────────────────────────────────────────────────────
-        
-        // 例：K + L → Enter
-        // combo_enter {
-        //     timeout-ms = <50>;
-        //     key-positions = <17 18>;
-        //     bindings = <&kp ENTER>;
-        // };
-        
-        // ──────────────────────────────────────────────────────────
-        // その他（今後追加用）
-        // ──────────────────────────────────────────────────────────
-        
-        // 例：Space + Backspace → 何かの機能
-        // combo_custom {
-        //     timeout-ms = <50>;
-        //     key-positions = <位置1 位置2>;
-        //     bindings = <&kp キーコード>;
-        // };
-    };
+        // 右下二つ
+        combo_middle_shift {
+            timeout-ms = <COMBO_TIMEOUT>;
+            key-positions = <28 29>;
+            bindings = <&kp LS(MCLK)>;
+            layers = <1>;  // Layer 1でのみ有効
+        };
+        };
 };
