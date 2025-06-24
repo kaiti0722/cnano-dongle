@@ -35,20 +35,29 @@
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
     scroll {
       layers = <1 2>;  // layer_1 と layer_2 でスクロール
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
     };
   };
 
-  // 左手：デフォルトでスクロール（鏡合わせ補正）
+  // 左手：レイヤー別スクロール方向切り替え
   trackball_listener2: trackball_listener2 {
     compatible = "zmk,input-listener";
     status = "disabled";
     device = <&trackball_split2>;
-    // デフォルトでスクロール（鏡合わせのためX軸も反転）
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
-    cursor {
-      layers = <1 2>;  // layer_1 と layer_2 でカーソル移動（鏡合わせ補正）
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>;
+    
+    // デフォルト（レイヤー0）：縦スクロール
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
+    
+    // レイヤー1：縦スクロール（デフォルトと同じ）
+    scroll {
+      layers = <1>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
+    };
+    
+    // レイヤー2：横スクロール（X/Y軸入れ替えでX軸スクロール）
+    horizontal_scroll {
+      layers = <2>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
     };
   };
 };
