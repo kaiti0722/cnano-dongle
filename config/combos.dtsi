@@ -87,48 +87,15 @@
     combos {
         compatible = "zmk,combos";
         
-        // ──────────────────────────────────────────────────────────
-        // ナビゲーション系（全レイヤー有効）
-        // ──────────────────────────────────────────────────────────
-        
+        //右１
+        CMB(ime, POS_O, POS_P, &kp LA(GRAVE))   // O + P → 半角全角切り替え
+        CMB(del, POS_L, POS_MIN, &kp DELETE)    // L + ハイフン → DELETE
+        CMB(smk, POS_RCK, POS_BSP, &kp DELETE)  // 右クリック + BS → SHIFT+中央クリック
+
+        //左１
         CMB(esc, POS_Q, POS_W, &kp ESC)         // Q + W → ESC
         CMB(tab, POS_A, POS_S, &kp TAB)         // A + S → TAB
         CMB(win, POS_Z, POS_X, &kp LWIN)        // Z + X → WIN
-        CMB(del, POS_O, POS_P, &kp DELETE)      // O + P → DELETE
-        CMB(ime, POS_F, POS_J, &kp LA(GRAVE))   // F + J → 半角全角切り替え
-        
-        // ──────────────────────────────────────────────────────────
-        // 編集系
-        // ──────────────────────────────────────────────────────────
-        
-        CMB(ent, POS_K, POS_L, &kp ENTER)       // K + L → ENTER
-        CMB(bsp, POS_V, POS_B, &kp BSPC)        // V + B → BACKSPACE
-        
-        // ──────────────────────────────────────────────────────────
-        // マウス操作系（Layer 0のみ）
-        // ──────────────────────────────────────────────────────────
-        
-        CMBL(mid, POS_LCK, POS_RCK, &mkp MCLK, 0)  // 左クリック + 右クリック → 中央クリック
-        
-        // ──────────────────────────────────────────────────────────
-        // 今後追加用テンプレート
-        // ──────────────────────────────────────────────────────────
-        
-        // CMB(copy, POS_C, POS_D, &kp LC(C))     // C + D → Ctrl+C
-        // CMB(paste, POS_V, POS_N, &kp LC(V))    // V + N → Ctrl+V
-        // CMB(save, POS_S, POS_D, &kp LC(S))     // S + D → Ctrl+S
-        // CMB(undo, POS_Z, POS_A, &kp LC(Z))     // Z + A → Ctrl+Z
-        
-        // 数字系
-        // CMB(num0, POS_M, POS_N, &kp N0)        // M + N → 0
-        // CMB(num1, POS_Q, POS_A, &kp N1)        // Q + A → 1
-        // CMB(num2, POS_W, POS_S, &kp N2)        // W + S → 2
-        
-        // 記号系
-        // CMB(excl, POS_E, POS_R, &kp EXCL)      // E + R → !
-        // CMB(ques, POS_U, POS_I, &kp QMARK)     // U + I → ?
-        
-        // 3キーCombo
-        // CMB3(cad, POS_Q, POS_W, POS_E, &kp LC(LA(DELETE)))  // Ctrl+Alt+Del
+
     };
 };
