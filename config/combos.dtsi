@@ -124,8 +124,8 @@
         CMB(f10, POS_P, POS_MIN, &kp F10)       // P + MINUS → F10
 
         // ファンクションキー（特殊）
-        CMB(f11, POS_G, POS_B, &kp F11)         // G + B → F11
-        CMB(f12, POS_N, POS_H, &kp F12)         // N + H → F12
+        CMB3(f11, POS_E, POS_R, POS_T, &kp F11)         // E + R + T → F11
+        CMB3(f12, POS_Y, POS_U, POS_I, &kp F12)         // Y + U + I → F12
 
         // 記号キー
         CMB(qpo, POS_R, POS_T, &kp SQT)         // R + T → '
@@ -134,7 +134,7 @@
         CMB(col, POS_H, POS_J, &kp COLON)       // H + J → :
 
         CMB(que, POS_N, POS_M, &kp SEMICOLON)   // N + M → ?
-        CMB(col, POS_M, POS_LCK, &kp COLON)     // M + 左クリック → /
+        CMB(sla, POS_M, POS_LCK, &kp COLON)     // M + 左クリック → /
         CMB(equ, POS_V, POS_B, &kp EQUAL)       // R + T → =
         CMB(pls, POS_C, POS_V, &kp PLUS)        // Y + U → +
 
