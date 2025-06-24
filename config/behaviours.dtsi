@@ -1,4 +1,5 @@
-/    behaviors {
+/ {
+    behaviors {
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
