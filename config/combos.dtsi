@@ -93,7 +93,7 @@
         CMB(smk, POS_RCK, POS_BSP, &shift_mclk)  // 右クリック + BS → SHIFT+中央クリック
 
         //右１
-        CMB(ime, POS_LCK, POS_RCK, &mkp MCLK)   // O + P → 半角全角切り替え
+        CMB(cen, POS_LCK, POS_RCK, &mkp MCLK)   // O + P → 半角全角切り替え
 
         //左１
         CMB(esc, POS_Q, POS_W, &kp ESC)         // Q + W → ESC
