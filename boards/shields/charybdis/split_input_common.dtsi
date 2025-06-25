@@ -35,7 +35,7 @@
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
     scroll {
       layers = <1 2>;  // layer_1 と layer_2 でスクロール
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
     };
   };
 
@@ -54,10 +54,10 @@
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
     };
     
-    // レイヤー2：横スクロール（X/Y軸入れ替えでX軸スクロール）
-    horizontal_scroll {
+    // レイヤー2：超精密縦スクロール（拡大縮小用）
+    zoom_scroll {
       layers = <2>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 50>, <&zip_xy_to_scroll_mapper>;
     };
   };
 };
