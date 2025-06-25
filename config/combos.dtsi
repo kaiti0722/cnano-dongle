@@ -88,7 +88,7 @@
         compatible = "zmk,combos";
         
         //右１
-        CMB(ime, POS_O, POS_P, &kp LA(GRAVE))   // O + P → 半角全角切り替え
+        CMB(ime, POS_O, POS_P, &kp LC(SPACE))   // O + P → 半角全角切り替え
         CMB(del, POS_L, POS_MIN, &kp DELETE)    // L + ハイフン → DELETE
         CMB(smk, POS_RCK, POS_BSP, &shift_mclk)  // 右クリック + BS → SHIFT+中央クリック
 
