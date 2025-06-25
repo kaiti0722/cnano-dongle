@@ -27,15 +27,15 @@
     };
   };
 
-  // 右手：デフォルトでカーソル移動、レイヤー1,2で縦スクロール
+  // 右手：デフォルトでカーソル移動、レイヤー1,2で縦スクロール限定
   trackball_listener: trackball_listener {
     compatible = "zmk,input-listener";
     status = "disabled";
     device = <&trackball_split>;
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
     scroll {
-      layers = <1 2>;  // layer_1 と layer_2 で縦スクロール
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
+      layers = <1 2>;  // layer_1 と layer_2 で縦スクロール限定
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_scaler 1 200>, <&zip_xy_to_scroll_mapper>;
     };
   };
 
@@ -45,19 +45,19 @@
     status = "disabled";
     device = <&trackball_split2>;
     
-    // デフォルト（レイヤー0）：縦スクロール
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
+    // デフォルト（レイヤー0）：縦スクロール限定
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 200>, <&zip_xy_to_scroll_mapper>;
     
-    // レイヤー1：縦スクロール（デフォルトと同じ）
+    // レイヤー1：縦スクロール限定（デフォルトと同じ）
     scroll {
       layers = <1>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 15>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 200>, <&zip_xy_to_scroll_mapper>;
     };
     
-    // レイヤー2：横スクロール（Y軸変換なしでX軸スクロール）
+    // レイヤー2：横スクロール限定（Y軸を実質無効化）
     horizontal_scroll {
       layers = <2>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 15 1>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 200 1>, <&zip_xy_to_scroll_mapper>;
     };
   };
 };
