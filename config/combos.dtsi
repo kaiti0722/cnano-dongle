@@ -1,153 +1,63 @@
-/*
- * ═══════════════════════════════════════════════════════════════
- *                           COMBO KEYS
- * ═══════════════════════════════════════════════════════════════
- */
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
 
-// ═══════════════════════════════════════════════════════════════
-//                        キー位置定義（競合回避）
-// ═══════════════════════════════════════════════════════════════
-
-// 上段（Row 0）
-#define POS_Q 0
-#define POS_W 1
-#define POS_E 2
-#define POS_R 3
-#define POS_T 4
-#define POS_Y 5
-#define POS_U 6
-#define POS_I 7
-#define POS_O 8
-#define POS_P 9
-
-// ホーム行（Row 1）
-#define POS_A 10
-#define POS_S 11
-#define POS_D 12
-#define POS_F 13
-#define POS_G 14
-#define POS_H 15
-#define POS_J 16
-#define POS_K 17
-#define POS_L 18
-#define POS_MIN 19  // MINUS
-
-// 下段（Row 2）
-#define POS_Z 20
-#define POS_X 21
-#define POS_C 22
-#define POS_V 23
-#define POS_B 24
-#define POS_N 25
-#define POS_M 26
-#define POS_LCK 27  // LCLK
-#define POS_RCK 28  // RCLK
-#define POS_BSP 29  // BACKSPACE
-
-// 親指行（Row 3）
-#define POS_LSH 31   // LSHIFT
-#define POS_SPC 32   // SPACE
-#define POS_MO1 33   // mo 1
-#define POS_LCT 34   // LCTRL
-#define POS_COM 35   // PERIOD
-#define POS_MO2 36   // mo 2
-#define POS_DOT 37   // COMMA
-#define POS_ENT 38   // ENTER
-
-// ═══════════════════════════════════════════════════════════════
-//                        マクロ関数（タイムアウト50固定）
-// ═══════════════════════════════════════════════════════════════
-
-// 基本Combo定義マクロ（全レイヤー有効）
-#define CMB(name, pos1, pos2, binding) \
-    combo_##name { \
-        timeout-ms = <50>; \
-        key-positions = <pos1 pos2>; \
-        bindings = <binding>; \
-    };
-
-// レイヤー限定Combo定義マクロ
-#define CMBL(name, pos1, pos2, binding, layer) \
-    combo_##name { \
-        timeout-ms = <70>; \
-        key-positions = <pos1 pos2>; \
-        bindings = <binding>; \
-        layers = <layer>; \
-    };
-
-// 3キーCombo定義マクロ
-#define CMB3(name, pos1, pos2, pos3, binding) \
-    combo_##name { \
-        timeout-ms = <70>; \
-        key-positions = <pos1 pos2 pos3>; \
-        bindings = <binding>; \
-    };
+#define WIN 1
+#define SYMBOLS 2
+#define NUMBERS 18
+#define NAV 4
+#define FUNCTION 5
+#define BLUETOOTH 6
+#define MOUSE 7
+#define CLICK 8
+#define SCRL 9
+#define BIRO 10
 
 / {
-    combos {
-        compatible = "zmk,combos";
-        
-        //右１
-        CMB(ime, POS_O, POS_P, &kp LC(SPACE))   // O + P → 半角全角切り替え
-        CMB(del, POS_L, POS_MIN, &kp DELETE)    // L + ハイフン → DELETE
-        CMB(smk, POS_RCK, POS_BSP, &shift_mclk)  // 右クリック + BS → SHIFT+中央クリック
+  split_inputs {
+    #address-cells = <1>;
+    #size-cells = <0>;
 
-        //右１
-        CMB(cen, POS_LCK, POS_RCK, &mkp MCLK)   // O + P → 半角全角切り替え
-
-        //左１
-        CMB(esc, POS_Q, POS_W, &kp ESC)         // Q + W → ESC
-        CMB(tab, POS_A, POS_S, &kp TAB)         // A + S → TAB
-        CMB(win, POS_Z, POS_X, &kp LWIN)        // Z + X → WIN
-
-        //右親指
-        CMB(uar, POS_COM, POS_DOT, &kp UP)      // カンマ + ピリオド → 上矢印
-        CMB(dar, POS_MO2, POS_ENT, &kp DOWN)    // MO2 + エンター → 下矢印
-        CMB(rar, POS_DOT, POS_ENT, &kp RIGHT)   // ピリオド + エンター → 右矢印
-        CMB(lar, POS_COM, POS_MO2, &kp LEFT)    // カンマ + MO2 → 左矢印
-
-        //左親指
-        CMB(ccr, POS_LSH, POS_SPC, &kp LC(C))   // SHIFT + SPACE → ctrl(C)
-        CMB(vcr, POS_LCT, POS_MO1, &kp LC(V))   // CTRL + MO1 → ctrl(V)
-        CMB(zcr, POS_SPC, POS_MO1, &kp LC(X))   // SPACE + MO1 → ctrl(X)
-                                                // ctrl + A → SHIFT + CTRLは既存ショートなので使用せず
-
-        // ファンクションキー（左手）
-        CMB(f1, POS_Q, POS_A, &kp F1)           // Q + A → F1
-        CMB(f2, POS_W, POS_S, &kp F2)           // W + S → F2
-        CMB(f3, POS_E, POS_D, &kp F3)           // E + D → F3
-        CMB(f4, POS_R, POS_F, &kp F4)           // R + F → F4
-        CMB(f5, POS_T, POS_G, &kp F5)           // T + G → F5
-
-        // ファンクションキー（右手）
-        CMB(f6, POS_Y, POS_H, &kp F6)           // Y + H → F6
-        CMB(f7, POS_U, POS_J, &kp F7)           // U + J → F7
-        CMB(f8, POS_I, POS_K, &kp F8)           // I + K → F8
-        CMB(f9, POS_O, POS_L, &kp F9)           // O + L → F9
-        CMB(f10, POS_P, POS_MIN, &kp F10)       // P + MINUS → F10
-
-        // ファンクションキー（特殊）
-        CMB3(f11, POS_E, POS_R, POS_T, &kp F11)         // E + R + T → F11
-        CMB3(f12, POS_Y, POS_U, POS_I, &kp F12)         // Y + U + I → F12
-
-        // 記号キー
-        CMB(qpo, POS_R, POS_T, &kp SQT)         // R + T → '
-        CMB(dou, POS_Y, POS_U, &kp DQT)         // Y + U → "
-        CMB(sem, POS_F, POS_G, &kp SEMICOLON)   // F + G → ;
-        CMB(col, POS_H, POS_J, &kp COLON)       // H + J → :
-
-        CMB(que, POS_N, POS_M, &kp QMARK)   // N + M → ?
-        CMB(sla, POS_M, POS_LCK, &kp FSLH)     // M + 左クリック → /
-        CMB(equ, POS_V, POS_B, &kp EQUAL)       // R + T → =
-        CMB(pls, POS_C, POS_V, &kp PLUS)        // Y + U → +
-
-        CMB(lbr, POS_E, POS_R, &kp LBKT)        // E + R → [
-        CMB(lbs, POS_D, POS_F, &kp LBRC)        // D + F → {
-        CMB(rbr, POS_U, POS_I, &kp RBKT)        // U + I → ]
-        CMB(rbs, POS_J, POS_K, &kp RBRC)        // J + K → }
-
-        CMB(bac, POS_G, POS_B, &kp BSLH)        // G + B → \
-        CMB(gra, POS_H, POS_N, &kp GRAVE)       // H + N → `
-        CMB(til, POS_J, POS_M, &kp TILDE)       // J + M → ~
+    trackball_split: trackball_split@0 {
+      compatible = "zmk,input-split";
+      reg = <0>;
     };
+    trackball_split2: trackball_split2@1 {
+      compatible = "zmk,input-split";
+      reg = <1>;
+    };
+  };
+
+  // 右手：デフォルトでカーソル移動、レイヤー1,2で縦スクロール限定
+  trackball_listener: trackball_listener {
+    compatible = "zmk,input-listener";
+    status = "disabled";
+    device = <&trackball_split>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>;
+    scroll {
+      layers = <1 2>;  // layer_1 と layer_2 で縦スクロール限定
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_scaler 0 15>, <&zip_xy_to_scroll_mapper>;
+    };
+  };
+
+  // 左手：レイヤー別スクロール方向切り替え
+  trackball_listener2: trackball_listener2 {
+    compatible = "zmk,input-listener";
+    status = "disabled";
+    device = <&trackball_split2>;
+    
+    // デフォルト（レイヤー0）：縦スクロール限定
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 0 15>, <&zip_xy_to_scroll_mapper>;
+    
+    // レイヤー1：縦スクロール限定（デフォルトと同じ）
+    scroll {
+      layers = <1>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 0 15>, <&zip_xy_to_scroll_mapper>;
+    };
+    
+    // レイヤー2：横スクロール限定（Y軸を0にしてX軸のみ）
+    horizontal_scroll {
+      layers = <2>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 15 0>, <&zip_xy_to_scroll_mapper>;
+    };
+  };
 };
