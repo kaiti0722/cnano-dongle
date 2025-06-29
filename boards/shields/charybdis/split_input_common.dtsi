@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 #define WIN 1
 #define SYMBOLS 2
@@ -13,6 +14,60 @@
 #define BIRO 10
 
 / {
+  // カスタムInput Processors定義
+  input_processors {
+    // 右手トラックボール用（左45度+手前15度傾斜補正）
+    right_x_scaler: right_x_scaler {
+      compatible = "zmk,input-processor-scaler";
+      #input-processor-cells = <2>;
+      type = <INPUT_EV_REL>;
+      codes = <INPUT_REL_X>;
+      track-remainders;
+    };
+    
+    right_y_scaler: right_y_scaler {
+      compatible = "zmk,input-processor-scaler";
+      #input-processor-cells = <2>;
+      type = <INPUT_EV_REL>;
+      codes = <INPUT_REL_Y>;
+      track-remainders;
+    };
+    
+    // 左手トラックボール用（同じ傾斜補正）
+    left_x_scaler: left_x_scaler {
+      compatible = "zmk,input-processor-scaler";
+      #input-processor-cells = <2>;
+      type = <INPUT_EV_REL>;
+      codes = <INPUT_REL_X>;
+      track-remainders;
+    };
+    
+    left_y_scaler: left_y_scaler {
+      compatible = "zmk,input-processor-scaler";
+      #input-processor-cells = <2>;
+      type = <INPUT_EV_REL>;
+      codes = <INPUT_REL_Y>;
+      track-remainders;
+    };
+    
+    // スクロール用スケーラー（より敏感に）
+    scroll_x_scaler: scroll_x_scaler {
+      compatible = "zmk,input-processor-scaler";
+      #input-processor-cells = <2>;
+      type = <INPUT_EV_REL>;
+      codes = <INPUT_REL_X>;
+      track-remainders;
+    };
+    
+    scroll_y_scaler: scroll_y_scaler {
+      compatible = "zmk,input-processor-scaler";
+      #input-processor-cells = <2>;
+      type = <INPUT_EV_REL>;
+      codes = <INPUT_REL_Y>;
+      track-remainders;
+    };
+  };
+
   split_inputs {
     #address-cells = <1>;
     #size-cells = <0>;
@@ -27,41 +82,75 @@
     };
   };
 
-  // 右手：座標変換を最適化してカーソル移動の精度を向上
+  // 右手：カーソル移動用トラックボール（傾斜補正付き）
   trackball_listener: trackball_listener {
     compatible = "zmk,input-listener";
     status = "disabled";
     device = <&trackball_split>;
     
-    // デフォルト: Y軸を反転して正しい方向に動くように調整
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>;
+    // デフォルト: 傾斜補正 + Y軸反転
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+                      <&right_x_scaler 141 100>,  // X軸: 70.7% → 100%補正
+                      <&right_y_scaler 104 100>;  // Y軸: 96.6% → 100%補正
     
-    // レイヤー1,2で縦スクロール（より敏感な設定）
+    // レイヤー1,2で縦スクロール（傾斜補正 + 感度調整）
     scroll {
       layers = <1 2>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 150>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+                        <&right_x_scaler 141 100>,      // 傾斜補正
+                        <&right_y_scaler 104 100>,      // 傾斜補正
+                        <&scroll_y_scaler 1 120>,       // スクロール感度調整
+                        <&zip_xy_to_scroll_mapper>;
+    };
+    
+    // レイヤー3で精密モード（感度を半分に）
+    precision {
+      layers = <3>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+                        <&right_x_scaler 71 100>,       // X軸: 傾斜補正 × 0.5
+                        <&right_y_scaler 52 100>;       // Y軸: 傾斜補正 × 0.5
     };
   };
 
-  // 左手：レイヤー別スクロール方向切り替え（設定を微調整）
+  // 左手：スクロール用トラックボール（傾斜補正付き）
   trackball_listener2: trackball_listener2 {
     compatible = "zmk,input-listener";
     status = "disabled";
     device = <&trackball_split2>;
     
-    // デフォルト（レイヤー0）：縦スクロール限定、より敏感に
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 150>, <&zip_xy_to_scroll_mapper>;
+    // デフォルト（レイヤー0）：縦スクロール + 傾斜補正
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
+                      <&left_x_scaler 141 100>,       // X軸傾斜補正（スワップ後のX=元Y）
+                      <&left_y_scaler 104 100>,       // Y軸傾斜補正（スワップ後のY=元X）
+                      <&scroll_y_scaler 1 120>,       // スクロール感度調整
+                      <&zip_xy_to_scroll_mapper>;
     
-    // レイヤー1：縦スクロール限定（デフォルトと同じ、敏感度向上）
+    // レイヤー1：縦スクロール（デフォルトと同じ、傾斜補正付き）
     scroll {
       layers = <1>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 150>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
+                        <&left_x_scaler 141 100>,
+                        <&left_y_scaler 104 100>,
+                        <&scroll_y_scaler 1 120>,
+                        <&zip_xy_to_scroll_mapper>;
     };
     
-    // レイヤー2：横スクロール限定（敏感度向上）
+    // レイヤー2：横スクロール + 傾斜補正
     horizontal_scroll {
       layers = <2>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 150 1>, <&zip_xy_to_scroll_mapper>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+                        <&left_x_scaler 141 100>,       // X軸傾斜補正
+                        <&left_y_scaler 104 100>,       // Y軸傾斜補正
+                        <&scroll_x_scaler 120 1>,       // 横スクロール感度調整
+                        <&zip_xy_to_scroll_mapper>;
+    };
+    
+    // レイヤー4：左手もカーソル移動モード（傾斜補正付き）
+    cursor_mode {
+      layers = <4>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+                        <&left_x_scaler 141 100>,       // X軸傾斜補正
+                        <&left_y_scaler 104 100>;       // Y軸傾斜補正
     };
   };
 };
