@@ -29,7 +29,7 @@
   &kp EXCL   &kp AT     &kp POUND    &kp DLLR   &kp PRCNT      &kp CARET     &kp AMPS    &kp ASTRK     &kp LPAR    &kp RPAR
   &kp EXCL &kp AT     &kp HASH  &kp DLLR &kp PRCNT   &kp CARET  &kp AMPS  &kp ASTRK   &kp LPAR  &kp RPAR
   &kp TAB  &none      &none     &none    &none       &none      &none     &none       &none     &kp DELETE
-  &none    &kp LSHIFT &kp SPACE &trans   &kp LCTRL   &kp PERIOD &mo 2     &kp COMMA   &kp ENTER &none
+  &none    &kp LSHIFT &kp SPACE &trans   &kp LCTRL   &kp PERIOD &mo 2     &kp COMMA    &kp ENTER &none
             >;
         };
 
