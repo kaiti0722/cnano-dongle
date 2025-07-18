@@ -90,7 +90,7 @@
     
     // デフォルト: 傾斜補正 + Y軸反転
     // 注意: 右手は左45度+手前15度傾斜
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+    input-processors = <&zip_xy_transform 0>,
                       <&right_x_scaler 100 100>,  // X軸: 70.7% → 100%補正
                       <&right_y_scaler 100 100>;  // Y軸: 96.6% → 100%補正
     
