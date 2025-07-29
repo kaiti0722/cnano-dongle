@@ -123,7 +123,7 @@
     scroll {
       layers = <1>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
-                        <&left_x_scaler 5 100>,
+                        <&left_x_scaler 1 100>,
                         <&left_y_scaler 0 100>,
                         <&scroll_y_scaler 1 120>,
                         <&zip_xy_to_scroll_mapper>;
@@ -133,7 +133,7 @@
     horizontal_scroll {
       layers = <2>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-                        <&left_x_scaler 5 100>,
+                        <&left_x_scaler 1 100>,
                         <&left_y_scaler 0 100>,
                         <&scroll_y_scaler 1 120>,
                         <&zip_xy_to_scroll_mapper>;
