@@ -36,7 +36,7 @@
         // Layer 2: ナビゲーション・ファンクションレイヤー
         layer_2 {
             bindings = <
-  &kp F1   &kp F2     &kp N1    &kp N2   &kp N3      &kp F6     &kp F7    &kp F8      &kp F9    &kp A
+  &kp F1   &kp F2     &kp N1    &kp N2   &kp N3      &kp F6     &kp F7    &kp F8      &kp F9    &kp LC(SPACE)
   &kp ESC  &none      &kp N4    &kp N5   &kp N6       &kp LEFT   &kp DOWN  &kp UP      &kp RIGHT &kp BACKSPACE
   &kp CAPS &none      &kp N7    &kp N8   &kp N9       &kp HOME   &kp PG_DN &kp PG_UP   &kp END   &kp F12
   &none    &kp N0     &kp SPACE &mo 1    &kp LCTRL   &kp PERIOD  &kp LA(LEFT) &kp COMMA &kp LA(RIGHT) &none
