@@ -189,5 +189,8 @@
         //                        トグルレイヤー
         // ═══════════════════════════════════════════════════════════════
         CMB4(layer3, POS_R, POS_T, POS_Y, POS_U, &tog 3)  // R + T + Y + U → レイヤー3トグル
+        CMB(cad_pan, POS_Q, POS_A, &tog 3)      // Q + A → パンモード
+        CMB(cad_orbit, POS_W, POS_S, &tog 4)    // W + S → 回転モード  
+        CMB(cad_zoom, POS_E, POS_D, &tog 5)     // E + D → ズームモード
     };
 };
