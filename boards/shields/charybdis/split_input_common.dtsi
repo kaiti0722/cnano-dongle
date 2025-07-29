@@ -91,8 +91,8 @@
     // デフォルト: 傾斜補正 + Y軸反転
     // 注意: 右手は左45度+手前15度傾斜
     input-processors = <&zip_xy_transform 0>,
-                      <&right_x_scaler 50 50>,  // X軸: 70.7% → 100%補正
-                      <&right_y_scaler 50 50>;  // Y軸: 96.6% → 100%補正
+                      <&right_x_scaler 50 100>,  // X軸: 70.7% → 100%補正
+                      <&right_y_scaler 50 100>;  // Y軸: 96.6% → 100%補正
     
     // レイヤー1,2で縦スクロール（傾斜補正 + 感度調整）
     scroll {
@@ -122,7 +122,7 @@
     // デフォルト（レイヤー0）：縦スクロール + 傾斜補正
     // 注意: 左手は右45度+手前15度傾斜（右手と線対称だが補正値は同じ）
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
-                      <&left_x_scaler 1 100>,       // X軸傾斜補正（スワップ後のX=元Y）
+                      <&left_x_scaler 0 100>,       // X軸傾斜補正（スワップ後のX=元Y）
                       <&left_y_scaler 100 100>,       // Y軸傾斜補正（スワップ後のY=元X）
                       <&scroll_y_scaler 1 120>,       // スクロール感度調整
                       <&zip_xy_to_scroll_mapper>;
@@ -132,7 +132,7 @@
       layers = <1>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
                         <&left_x_scaler 100 100>,
-                        <&left_y_scaler 1 100>,
+                        <&left_y_scaler 0 100>,
                         <&scroll_y_scaler 1 120>,
                         <&zip_xy_to_scroll_mapper>;
     };
