@@ -99,17 +99,9 @@
       layers = <1 2>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
                         <&right_x_scaler 0 100>,      // 傾斜補正
-                        <&right_y_scaler 100 100>,      // 傾斜補正
+                        <&right_y_scaler 50 100>,      // 傾斜補正
                         <&scroll_y_scaler 1 120>,       // スクロール感度調整
                         <&zip_xy_to_scroll_mapper>;
-    };
-    
-    // レイヤー3で精密モード（感度を半分に）
-    precision {
-      layers = <3>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-                        <&right_x_scaler 71 100>,       // X軸: 傾斜補正 × 0.5
-                        <&right_y_scaler 52 100>;       // Y軸: 傾斜補正 × 0.5
     };
   };
 
@@ -123,7 +115,7 @@
     // 注意: 左手は右45度+手前15度傾斜（右手と線対称だが補正値は同じ）
     input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
                       <&left_x_scaler 0 100>,       // X軸傾斜補正（スワップ後のX=元Y）
-                      <&left_y_scaler 100 100>,       // Y軸傾斜補正（スワップ後のY=元X）
+                      <&left_y_scaler 50 100>,       // Y軸傾斜補正（スワップ後のY=元X）
                       <&scroll_y_scaler 1 120>,       // スクロール感度調整
                       <&zip_xy_to_scroll_mapper>;
     
@@ -131,7 +123,7 @@
     scroll {
       layers = <1>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
-                        <&left_x_scaler 100 100>,
+                        <&left_x_scaler 50 100>,
                         <&left_y_scaler 0 100>,
                         <&scroll_y_scaler 1 120>,
                         <&zip_xy_to_scroll_mapper>;
@@ -141,18 +133,10 @@
     horizontal_scroll {
       layers = <2>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-                        <&left_x_scaler 141 100>,       // X軸傾斜補正
-                        <&left_y_scaler 104 100>,       // Y軸傾斜補正
-                        <&scroll_x_scaler 120 1>,       // 横スクロール感度調整
+                        <&left_x_scaler 50 100>,
+                        <&left_y_scaler 0 100>,
+                        <&scroll_y_scaler 1 120>,
                         <&zip_xy_to_scroll_mapper>;
-    };
-    
-    // レイヤー4：左手もカーソル移動モード（傾斜補正付き）
-    cursor_mode {
-      layers = <4>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-                        <&left_x_scaler 141 100>,       // X軸傾斜補正
-                        <&left_y_scaler 104 100>;       // Y軸傾斜補正
     };
   };
 };
