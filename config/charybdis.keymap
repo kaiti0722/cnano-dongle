@@ -43,15 +43,36 @@
             >;
         };
 
-        // Layer 2: ナビゲーション・ファンクションレイヤー
+        // Layer 3: 基本レイヤー（アルファベット）(専用)
         layer_3 {
             bindings = <
-  &kp A       &kp AT    &kp POUND    &kp DLLR            &kp PRCNT            &none           &none            &none          &none            &none
+  &kp Q        &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &kp A        &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
+  &z_mo4 4 Z   &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
+  &none        &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
+            >;
+        };
+
+        // Layer 4: 数字・記号レイヤー(専用)
+        layer_4 {
+            bindings = <
+  &none    &none       &none       &none        &none        &kp CARET           &kp AMPS          &kp ASTRK    &kp LPAR         &kp RPAR
+  &none    &none       &kp UP      &none        &none        &kp BSLH            &kp TILDE         &kp EQUAL    &kp SEMICOLON    &kp SQT
+  &none    &kp LEFT    &kp DOWN    &kp RIGHT    &none        &kp LBKT            &kp RBKT          &kp COMMA    &kp PERIOD       &kp FSLH
+  &none    &none       &none       &kp LC(C)    &kp LC(V)    &kp LC(LS(DOWN))    &kp LC(LS(UP))    &none        &none            &none
+            >;
+        };
+
+        // Layer 5: ナビゲーション・ファンクションレイヤー(専用)
+        layer_5 {
+            bindings = <
+  &kp EXCL    &kp AT    &kp POUND    &kp DLLR            &kp PRCNT            &none           &none            &none          &none            &none
   &kp N1      &kp N2    &kp N3       &kp N4              &kp N5               &none           &none            &none          &none            &kp DELETE
   &kp N6      &kp N7    &kp N8       &kp N9              &kp N0               &kp LG(LEFT)    &kp LG(RIGHT)    &kp LA(TAB)    &kp BACKSPACE    &kp F12
   &none       &none     &none        &kp LC(LS(LEFT))    &kp LC(LS(RIGHT))    &kp LA(LEFT)    &kp RA(LEFT)     &none          &none            &none
             >;
         };
+
 
     };
 };
