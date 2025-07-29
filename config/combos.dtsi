@@ -8,7 +8,7 @@
 //                        キー位置定義（4行5列×2レイアウト）
 // ═══════════════════════════════════════════════════════════════
 
-// 上段（Row 0）
+// 上段（Row 0: 0-9）
 #define POS_Q 0
 #define POS_W 1
 #define POS_E 2
@@ -20,7 +20,7 @@
 #define POS_O 8
 #define POS_P 9
 
-// ホーム行（Row 1）
+// ホーム行（Row 1: 10-19）
 #define POS_A 10
 #define POS_S 11
 #define POS_D 12
@@ -32,7 +32,7 @@
 #define POS_L 18
 #define POS_MIN 19  // MINUS
 
-// 下段（Row 2）
+// 下段（Row 2: 20-29）
 #define POS_Z 20
 #define POS_X 21
 #define POS_C 22
@@ -44,16 +44,17 @@
 #define POS_RCK 28  // RCLK
 #define POS_MO2 29  // mo 2
 
-// 親指行（Row 3）
-#define POS_LSH 31   // LSHIFT
-#define POS_SPC 32   // SPACE
-#define POS_MO1 33   // mo 1
-#define POS_LCT 34   // LCTRL
-#define POS_COM 35   // COMMA
-#define POS_BSP 36   // BACKSPACE
-#define POS_ENT 37   // ENTER
-#define POS_DOT 38   // PERIOD
-
+// 親指行（Row 3: 30-39）
+#define POS_NONE1 30  // none
+#define POS_NONE2 31  // none
+#define POS_NONE3 32  // none
+#define POS_LSH 33    // LSHIFT
+#define POS_LCT 34    // LCTRL
+#define POS_SPC 35    // SPACE
+#define POS_ENT 36    // ENTER
+#define POS_NONE4 37  // none
+#define POS_NONE5 38  // none
+#define POS_NONE6 39  // none
 
 // ═══════════════════════════════════════════════════════════════
 //                        マクロ関数（タイムアウト50固定）
@@ -88,6 +89,10 @@
     combos {
         compatible = "zmk,combos";
         
+        // ═══════════════════════════════════════════════════════════════
+        //                        基本操作コンボ
+        // ═══════════════════════════════════════════════════════════════
+        
         // 右手上段・ホーム行
         CMB(ime, POS_O, POS_P, &kp LC(SPACE))       // O + P → 半角全角切り替え
         CMB(del, POS_L, POS_MIN, &kp DELETE)        // L + MINUS → DELETE
@@ -101,17 +106,22 @@
         CMB(tab, POS_A, POS_S, &kp TAB)             // A + S → TAB
         CMB(win, POS_Z, POS_X, &kp LWIN)            // Z + X → WIN
 
-        // 右親指矢印キー
-        CMB(uar, POS_COM, POS_DOT, &kp UP)          // COMMA + PERIOD → 上矢印
-        CMB(dar, POS_BSP, POS_ENT, &kp DOWN)        // BACKSPACE + ENTER → 下矢印
-        CMB(rar, POS_DOT, POS_ENT, &kp RIGHT)       // PERIOD + ENTER → 右矢印
-        CMB(lar, POS_COM, POS_BSP, &kp LEFT)        // COMMA + BACKSPACE → 左矢印
-
+        // ═══════════════════════════════════════════════════════════════
+        //                        親指行操作（実際のキー位置に基づく）
+        // ═══════════════════════════════════════════════════════════════
+        
         // 左親指コピペ操作
-        CMB(ccr, POS_LSH, POS_SPC, &kp LC(C))       // SHIFT + SPACE → Ctrl+C
-        CMB(vcr, POS_LCT, POS_MO1, &kp LC(V))       // CTRL + MO1 → Ctrl+V
-        CMB(xcr, POS_SPC, POS_MO1, &kp LC(X))       // SPACE + MO1 → Ctrl+X
+        CMB(ccr, POS_LSH, POS_LCT, &kp LC(C))       // SHIFT + CTRL → Ctrl+C
+        CMB(vcr, POS_LCT, POS_SPC, &kp LC(V))       // CTRL + SPACE → Ctrl+V
+        CMB(xcr, POS_LSH, POS_SPC, &kp LC(X))       // SHIFT + SPACE → Ctrl+X
+        
+        // 右親指操作
+        CMB(bsp, POS_SPC, POS_ENT, &kp BACKSPACE)   // SPACE + ENTER → BACKSPACE
 
+        // ═══════════════════════════════════════════════════════════════
+        //                        ファンクションキー
+        // ═══════════════════════════════════════════════════════════════
+        
         // ファンクションキー（左手）
         CMB(f1, POS_Q, POS_A, &kp F1)               // Q + A → F1
         CMB(f2, POS_W, POS_S, &kp F2)               // W + S → F2
@@ -130,24 +140,43 @@
         CMB3(f11, POS_E, POS_R, POS_T, &kp F11)     // E + R + T → F11
         CMB3(f12, POS_Y, POS_U, POS_I, &kp F12)     // Y + U + I → F12
 
-        // 記号キー
+        // ═══════════════════════════════════════════════════════════════
+        //                        記号キー
+        // ═══════════════════════════════════════════════════════════════
+        
+        // 引用符
         CMB(qpo, POS_R, POS_T, &kp SQT)             // R + T → '
         CMB(dou, POS_Y, POS_U, &kp DQT)             // Y + U → "
+        
+        // セミコロン・コロン
         CMB(sem, POS_F, POS_G, &kp SEMICOLON)       // F + G → ;
         CMB(col, POS_H, POS_J, &kp COLON)           // H + J → :
 
+        // 基本記号
         CMB(que, POS_N, POS_M, &kp QMARK)           // N + M → ?
         CMB(sla, POS_M, POS_LCK, &kp FSLH)          // M + LCLK → /
         CMB(equ, POS_V, POS_B, &kp EQUAL)           // V + B → =
         CMB(pls, POS_C, POS_V, &kp PLUS)            // C + V → +
 
+        // 括弧（角括弧・波括弧）
         CMB(lbr, POS_E, POS_R, &kp LBKT)            // E + R → [
         CMB(lbs, POS_D, POS_F, &kp LBRC)            // D + F → {
         CMB(rbr, POS_U, POS_I, &kp RBKT)            // U + I → ]
         CMB(rbs, POS_J, POS_K, &kp RBRC)            // J + K → }
 
+        // その他の記号
         CMB(bac, POS_G, POS_B, &kp BSLH)            // G + B → \
         CMB(gra, POS_H, POS_N, &kp GRAVE)           // H + N → `
         CMB(til, POS_J, POS_M, &kp TILDE)           // J + M → ~
+
+        // ═══════════════════════════════════════════════════════════════
+        //                        矢印キー（レイヤー特化）
+        // ═══════════════════════════════════════════════════════════════
+        
+        // レイヤー0での矢印キー（基本操作）
+        CMBL(up0, POS_W, POS_E, &kp UP, 0)          // W + E → 上矢印
+        CMBL(dn0, POS_S, POS_D, &kp DOWN, 0)        // S + D → 下矢印
+        CMBL(lt0, POS_A, POS_D, &kp LEFT, 0)        // A + D → 左矢印
+        CMBL(rt0, POS_D, POS_F, &kp RIGHT, 0)       // D + F → 右矢印
     };
 };
