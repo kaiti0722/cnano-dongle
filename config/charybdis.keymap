@@ -10,7 +10,7 @@
     
     behaviors {
         // 20ms残存タイピングモード（明示的な時間制御版）
-        typ: typing_mode_macro {
+        typing_key: typing_mode_macro {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             wait-ms = <0>;
@@ -25,26 +25,26 @@
         };
         
         // Z用の特別なhold-tap（タイピングモード対応）
-        z_typ_mo1: z_typing_layer1 {
+        z_typing_mo1: z_typing_layer1 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            bindings = <&mo>, <&typ>;
+            bindings = <&mo>, <&typing_key>;
             require-prior-idle-ms = <150>;
             hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33 34 31 32>;
             hold-trigger-on-release;
         };
         
         // レイヤー3用のZ hold-tap（タイピングモード対応）
-        z_typ_mo4: z_typing_layer4 {
+        z_typing_mo4: z_typing_layer4 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            bindings = <&mo>, <&typ>;
+            bindings = <&mo>, <&typing_key>;
             require-prior-idle-ms = <150>;
             hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33 34 31 32>;
             hold-trigger-on-release;
@@ -59,10 +59,10 @@
         // Layer 0: 基本レイヤー（自動タイピングモード付き）
         default_layer {
             bindings = <
-  &typ Q           &typ W    &typ E    &typ R       &typ T      &typ Y     &typ U        &typ I      &typ O     &typ P
-  &typ A           &typ S    &typ D    &typ F       &typ G      &typ H     &typ J        &typ K      &typ L     &typ MINUS
-  &z_typ_mo1 1 Z   &typ X    &typ C    &typ V       &typ B      &typ N     &typ M        &mkp LCLK   &mkp RCLK  &mo 2
-  &none            &none     &none     &kp LSHIFT   &kp LCTRL   &typ SPACE &typ ENTER    &none       &none      &none
+  &typing_key Q        &typing_key W    &typing_key E    &typing_key R       &typing_key T      &typing_key Y     &typing_key U        &typing_key I      &typing_key O     &typing_key P
+  &typing_key A        &typing_key S    &typing_key D    &typing_key F       &typing_key G      &typing_key H     &typing_key J        &typing_key K      &typing_key L     &typing_key MINUS
+  &z_typing_mo1 1 Z    &typing_key X    &typing_key C    &typing_key V       &typing_key B      &typing_key N     &typing_key M        &mkp LCLK          &mkp RCLK         &mo 2
+  &none                &none            &none            &kp LSHIFT          &kp LCTRL          &typing_key SPACE &typing_key ENTER    &none              &none             &none
             >;
         };
 
@@ -89,10 +89,10 @@
         // Layer 3: 基本レイヤー（アルファベット）(専用)
         layer_3 {
             bindings = <
-  &kp Q            &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
-  &kp A            &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
-  &z_typ_mo4 4 Z   &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
-  &none            &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
+  &kp Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &kp A                &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
+  &z_typing_mo4 4 Z    &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
+  &none                &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
             >;
         };
 
@@ -119,10 +119,10 @@
         // Layer 6: 自動タイピングモード（トラックボール完全無効）
         auto_typing_layer {
             bindings = <
-  &kp Q            &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
-  &kp A            &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
-  &z_typ_mo1 1 Z   &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &none       &none      &mo 2
-  &none            &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
+  &kp Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &kp A                &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
+  &z_typing_mo1 1 Z    &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &none       &none      &mo 2
+  &none                &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
             >;
         };
     };
