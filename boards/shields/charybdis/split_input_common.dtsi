@@ -138,5 +138,32 @@
                         <&scroll_y_scaler 1 120>,
                         <&zip_xy_to_scroll_mapper>;
     };
+
+  // レイヤー3：パン（移動）- Shift + 中ボタン相当
+  cad_pan {
+    layers = <3>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+                      <&left_x_scaler 100 100>,       // パン感度
+                      <&left_y_scaler 100 100>;       // 通常カーソル移動
+  };
+  
+  // レイヤー4：オービット（回転）- 中ボタン相当  
+  cad_orbit {
+    layers = <4>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+                      <&left_x_scaler 120 100>,       // 回転感度（少し敏感に）
+                      <&left_y_scaler 120 100>;       // 通常カーソル移動
+  };
+  
+  // レイヤー5：ズーム - マウスホイール相当
+  cad_zoom {
+    layers = <5>;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+                      <&left_x_scaler 0 100>,         // X軸無効化
+                      <&left_y_scaler 150 100>,       // Y軸をズーム用に敏感に
+                      <&scroll_y_scaler 1 60>,        // ズーム感度調整
+                      <&zip_xy_to_scroll_mapper>;     // スクロールに変換
+  };
+
   };
 };
