@@ -7,19 +7,67 @@
 
 / {
     chosen { zmk,matrix_transform = &four_row_five_col_transform; };
+    
+    behaviors {
+        // 20msタイピングモード：文字入力後20msだけレイヤー6に残存
+        sl6_20ms: sticky_layer_6_20ms {
+            compatible = "zmk,behavior-sticky-layer";
+            #binding-cells = <1>;
+            release-after-ms = <50>;  // 50msに変更（より実用的）
+            bindings = <&mo>;
+            ignore-modifiers;
+        };
+        
+        // タイピング文字：文字入力＋50msタイピングモード
+        typ: typing_char {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings
+                = <&macro_param_1to1>
+                , <&kp MACRO_PLACEHOLDER>  // 文字を入力
+                , <&sl6_20ms 6>            // 50msだけレイヤー6に移動
+                ;
+        };
+        
+        // Z用特別なhold-tap（タイピングモード対応）
+        z_typ_mo1: z_typing_layer1 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&typ>;  // 長押し：mo、短押し：typ Z
+            require-prior-idle-ms = <150>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33 34 31 32>;
+            hold-trigger-on-release;
+        };
+        
+        // レイヤー3用のZ hold-tap（タイピングモード対応）
+        z_typ_mo4: z_typing_layer4 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&typ>;  // 長押し：mo 4、短押し：typ Z
+            require-prior-idle-ms = <150>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33 34 31 32>;
+            hold-trigger-on-release;
+        };
+    };
 };
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        // Layer 0: 基本レイヤー（アルファベット）
+        // Layer 0: 基本レイヤー（全文字キーにタイピングモード適用）
         default_layer {
             bindings = <
-  &kp Q        &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
-  &kp A        &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
-  &z_mo1 1 Z   &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 2
-  &none        &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
+  &typ Q           &typ W    &typ E    &typ R       &typ T      &typ Y     &typ U        &typ I      &typ O     &typ P
+  &typ A           &typ S    &typ D    &typ F       &typ G      &typ H     &typ J        &typ K      &typ L     &typ MINUS
+  &z_typ_mo1 1 Z   &typ X    &typ C    &typ V       &typ B      &typ N     &typ M        &mkp LCLK   &mkp RCLK  &mo 2
+  &none            &none     &none     &kp LSHIFT   &kp LCTRL   &typ SPACE &typ ENTER    &none       &none      &none
             >;
         };
 
@@ -46,10 +94,10 @@
         // Layer 3: 基本レイヤー（アルファベット）(専用)
         layer_3 {
             bindings = <
-  &kp Q        &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
-  &kp A        &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
-  &z_mo4 4 Z   &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
-  &none        &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
+  &kp Q            &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &kp A            &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
+  &z_typ_mo4 4 Z   &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
+  &none            &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
             >;
         };
 
@@ -73,6 +121,14 @@
             >;
         };
 
-
+        // Layer 6: 自動タイピングモード（トラックボール完全無効）
+        auto_typing_layer {
+            bindings = <
+  &kp Q            &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &kp A            &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
+  &z_typ_mo1 1 Z   &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &none       &none      &mo 2
+  &none            &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
+            >;
+        };
     };
 };
