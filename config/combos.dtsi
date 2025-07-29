@@ -84,7 +84,13 @@
         key-positions = <pos1 pos2 pos3>; \
         bindings = <binding>; \
     };
-
+// 4キーCombo定義マクロ
+#define CMB4(name, pos1, pos2, pos3, pos4, binding) \
+    combo_##name { \
+        timeout-ms = <100>; \
+        key-positions = <pos1 pos2 pos3 pos4>; \
+        bindings = <binding>; \
+    };
 / {
     combos {
         compatible = "zmk,combos";
@@ -178,5 +184,10 @@
         CMBL(dn0, POS_S, POS_D, &kp DOWN, 0)        // S + D → 下矢印
         CMBL(lt0, POS_A, POS_D, &kp LEFT, 0)        // A + D → 左矢印
         CMBL(rt0, POS_D, POS_F, &kp RIGHT, 0)       // D + F → 右矢印
+
+        // ═══════════════════════════════════════════════════════════════
+        //                        トグルレイヤー
+        // ═══════════════════════════════════════════════════════════════
+        CMB4(layer3, POS_R, POS_T, POS_Y, POS_U, &tog 3)  // R + T + Y + U → レイヤー3トグル
     };
 };
