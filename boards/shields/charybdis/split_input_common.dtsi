@@ -98,7 +98,7 @@
     scroll {
       layers = <1 2>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
-                        <&right_x_scaler 100 100>,      // 傾斜補正
+                        <&right_x_scaler 0 100>,      // 傾斜補正
                         <&right_y_scaler 100 100>,      // 傾斜補正
                         <&scroll_y_scaler 1 120>,       // スクロール感度調整
                         <&zip_xy_to_scroll_mapper>;
