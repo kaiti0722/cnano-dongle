@@ -21,6 +21,19 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        // Z/mo4 hold-tap（レイヤー3でZ長押し→レイヤー4）
+        z_mo4: z_layer4 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&kp>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 33 34 31 32>;
+            hold-trigger-on-release;
+        };
+
         // Z/mo1 hold-tap（hmlベース）
         z_mo1: z_layer1 {
             compatible = "zmk,behavior-hold-tap";
