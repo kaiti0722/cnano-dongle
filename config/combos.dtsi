@@ -93,14 +93,12 @@
         bindings = <binding>; \
     };
 
-#include "keys_jp.h"  // 日本語配列用キー定義を追加
-
 / {
     combos {
         compatible = "zmk,combos";
         
         // ═══════════════════════════════════════════════════════════════
-        //                        基本操作コンボ（全レイヤー共通）
+        //                        基本操作コンボ
         // ═══════════════════════════════════════════════════════════════
         
         // 右手上段・ホーム行
@@ -154,150 +152,82 @@
         //                        記号キー（英語配列用：レイヤー0-2）
         // ═══════════════════════════════════════════════════════════════
         
-        // 引用符（英語配列）
-        CMBL(qpo_en, POS_R, POS_T, &kp SQT, 0)              // R + T → '
+        // 引用符
+        CMBL(qpo_en0, POS_R, POS_T, &kp SQT, 0)             // R + T → '
         CMBL(qpo_en1, POS_R, POS_T, &kp SQT, 1)             // R + T → '
         CMBL(qpo_en2, POS_R, POS_T, &kp SQT, 2)             // R + T → '
         
-        CMBL(dou_en, POS_Y, POS_U, &kp DQT, 0)              // Y + U → "
+        CMBL(dou_en0, POS_Y, POS_U, &kp DQT, 0)             // Y + U → "
         CMBL(dou_en1, POS_Y, POS_U, &kp DQT, 1)             // Y + U → "
         CMBL(dou_en2, POS_Y, POS_U, &kp DQT, 2)             // Y + U → "
         
-        // セミコロン・コロン（英語配列）
-        CMBL(sem_en, POS_F, POS_G, &kp SEMICOLON, 0)        // F + G → ;
+        // セミコロン・コロン
+        CMBL(sem_en0, POS_F, POS_G, &kp SEMICOLON, 0)       // F + G → ;
         CMBL(sem_en1, POS_F, POS_G, &kp SEMICOLON, 1)       // F + G → ;
         CMBL(sem_en2, POS_F, POS_G, &kp SEMICOLON, 2)       // F + G → ;
         
-        CMBL(col_en, POS_H, POS_J, &kp COLON, 0)            // H + J → :
+        CMBL(col_en0, POS_H, POS_J, &kp COLON, 0)           // H + J → :
         CMBL(col_en1, POS_H, POS_J, &kp COLON, 1)           // H + J → :
         CMBL(col_en2, POS_H, POS_J, &kp COLON, 2)           // H + J → :
 
-        // 基本記号（英語配列）
-        CMBL(que_en, POS_N, POS_M, &kp QMARK, 0)            // N + M → ?
+        // 基本記号
+        CMBL(que_en0, POS_N, POS_M, &kp QMARK, 0)           // N + M → ?
         CMBL(que_en1, POS_N, POS_M, &kp QMARK, 1)           // N + M → ?
         CMBL(que_en2, POS_N, POS_M, &kp QMARK, 2)           // N + M → ?
         
-        CMBL(sla_en, POS_M, POS_LCK, &kp FSLH, 0)           // M + LCLK → /
+        CMBL(sla_en0, POS_M, POS_LCK, &kp FSLH, 0)          // M + LCLK → /
         CMBL(sla_en1, POS_M, POS_LCK, &kp FSLH, 1)          // M + LCLK → /
         CMBL(sla_en2, POS_M, POS_LCK, &kp FSLH, 2)          // M + LCLK → /
         
-        CMBL(equ_en, POS_V, POS_B, &kp EQUAL, 0)            // V + B → =
+        CMBL(equ_en0, POS_V, POS_B, &kp EQUAL, 0)           // V + B → =
         CMBL(equ_en1, POS_V, POS_B, &kp EQUAL, 1)           // V + B → =
         CMBL(equ_en2, POS_V, POS_B, &kp EQUAL, 2)           // V + B → =
         
-        CMBL(pls_en, POS_C, POS_V, &kp PLUS, 0)             // C + V → +
+        CMBL(pls_en0, POS_C, POS_V, &kp PLUS, 0)            // C + V → +
         CMBL(pls_en1, POS_C, POS_V, &kp PLUS, 1)            // C + V → +
         CMBL(pls_en2, POS_C, POS_V, &kp PLUS, 2)            // C + V → +
 
-        // 括弧（英語配列）
-        CMBL(lbr_en, POS_E, POS_R, &kp LBKT, 0)             // E + R → [
+        // 括弧
+        CMBL(lbr_en0, POS_E, POS_R, &kp LBKT, 0)            // E + R → [
         CMBL(lbr_en1, POS_E, POS_R, &kp LBKT, 1)            // E + R → [
         CMBL(lbr_en2, POS_E, POS_R, &kp LBKT, 2)            // E + R → [
         
-        CMBL(lbs_en, POS_D, POS_F, &kp LBRC, 0)             // D + F → {
+        CMBL(lbs_en0, POS_D, POS_F, &kp LBRC, 0)            // D + F → {
         CMBL(lbs_en1, POS_D, POS_F, &kp LBRC, 1)            // D + F → {
         CMBL(lbs_en2, POS_D, POS_F, &kp LBRC, 2)            // D + F → {
         
-        CMBL(rbr_en, POS_U, POS_I, &kp RBKT, 0)             // U + I → ]
+        CMBL(rbr_en0, POS_U, POS_I, &kp RBKT, 0)            // U + I → ]
         CMBL(rbr_en1, POS_U, POS_I, &kp RBKT, 1)            // U + I → ]
         CMBL(rbr_en2, POS_U, POS_I, &kp RBKT, 2)            // U + I → ]
         
-        CMBL(rbs_en, POS_J, POS_K, &kp RBRC, 0)             // J + K → }
+        CMBL(rbs_en0, POS_J, POS_K, &kp RBRC, 0)            // J + K → }
         CMBL(rbs_en1, POS_J, POS_K, &kp RBRC, 1)            // J + K → }
         CMBL(rbs_en2, POS_J, POS_K, &kp RBRC, 2)            // J + K → }
 
-        // その他の記号（英語配列）
-        CMBL(bac_en, POS_G, POS_B, &kp BSLH, 0)             // G + B → \
+        // その他の記号
+        CMBL(bac_en0, POS_G, POS_B, &kp BSLH, 0)            // G + B → \
         CMBL(bac_en1, POS_G, POS_B, &kp BSLH, 1)            // G + B → \
         CMBL(bac_en2, POS_G, POS_B, &kp BSLH, 2)            // G + B → \
         
-        CMBL(gra_en, POS_H, POS_N, &kp GRAVE, 0)            // H + N → `
+        CMBL(gra_en0, POS_H, POS_N, &kp GRAVE, 0)           // H + N → `
         CMBL(gra_en1, POS_H, POS_N, &kp GRAVE, 1)           // H + N → `
         CMBL(gra_en2, POS_H, POS_N, &kp GRAVE, 2)           // H + N → `
         
-        CMBL(til_en, POS_J, POS_M, &kp TILDE, 0)            // J + M → ~
+        CMBL(til_en0, POS_J, POS_M, &kp TILDE, 0)           // J + M → ~
         CMBL(til_en1, POS_J, POS_M, &kp TILDE, 1)           // J + M → ~
         CMBL(til_en2, POS_J, POS_M, &kp TILDE, 2)           // J + M → ~
-
-        // ═══════════════════════════════════════════════════════════════
-        //                        記号キー（日本語配列用：レイヤー3-5）
-        // ═══════════════════════════════════════════════════════════════
-        
-        // 引用符（日本語配列）
-        CMBL(qpo_jp, POS_R, POS_T, &kp JP_SQT, 3)           // R + T → '
-        CMBL(qpo_jp4, POS_R, POS_T, &kp JP_SQT, 4)          // R + T → '
-        CMBL(qpo_jp5, POS_R, POS_T, &kp JP_SQT, 5)          // R + T → '
-        
-        CMBL(dou_jp, POS_Y, POS_U, &kp JP_DQT, 3)           // Y + U → "
-        CMBL(dou_jp4, POS_Y, POS_U, &kp JP_DQT, 4)          // Y + U → "
-        CMBL(dou_jp5, POS_Y, POS_U, &kp JP_DQT, 5)          // Y + U → "
-        
-        // セミコロン・コロン（日本語配列）
-        CMBL(sem_jp, POS_F, POS_G, &kp JP_SEMICOLON, 3)     // F + G → ;
-        CMBL(sem_jp4, POS_F, POS_G, &kp JP_SEMICOLON, 4)    // F + G → ;
-        CMBL(sem_jp5, POS_F, POS_G, &kp JP_SEMICOLON, 5)    // F + G → ;
-        
-        CMBL(col_jp, POS_H, POS_J, &kp JP_COLON, 3)         // H + J → :
-        CMBL(col_jp4, POS_H, POS_J, &kp JP_COLON, 4)        // H + J → :
-        CMBL(col_jp5, POS_H, POS_J, &kp JP_COLON, 5)        // H + J → :
-
-        // 基本記号（日本語配列）
-        CMBL(que_jp, POS_N, POS_M, &kp JP_QMARK, 3)         // N + M → ?
-        CMBL(que_jp4, POS_N, POS_M, &kp JP_QMARK, 4)        // N + M → ?
-        CMBL(que_jp5, POS_N, POS_M, &kp JP_QMARK, 5)        // N + M → ?
-        
-        CMBL(sla_jp, POS_M, POS_LCK, &kp JP_FSLH, 3)        // M + LCLK → /
-        CMBL(sla_jp4, POS_M, POS_LCK, &kp JP_FSLH, 4)       // M + LCLK → /
-        CMBL(sla_jp5, POS_M, POS_LCK, &kp JP_FSLH, 5)       // M + LCLK → /
-        
-        CMBL(equ_jp, POS_V, POS_B, &kp JP_EQUAL, 3)         // V + B → =
-        CMBL(equ_jp4, POS_V, POS_B, &kp JP_EQUAL, 4)        // V + B → =
-        CMBL(equ_jp5, POS_V, POS_B, &kp JP_EQUAL, 5)        // V + B → =
-        
-        CMBL(pls_jp, POS_C, POS_V, &kp JP_PLUS, 3)          // C + V → +
-        CMBL(pls_jp4, POS_C, POS_V, &kp JP_PLUS, 4)         // C + V → +
-        CMBL(pls_jp5, POS_C, POS_V, &kp JP_PLUS, 5)         // C + V → +
-
-        // 括弧（日本語配列）
-        CMBL(lbr_jp, POS_E, POS_R, &kp JP_LBKT, 3)          // E + R → [
-        CMBL(lbr_jp4, POS_E, POS_R, &kp JP_LBKT, 4)         // E + R → [
-        CMBL(lbr_jp5, POS_E, POS_R, &kp JP_LBKT, 5)         // E + R → [
-        
-        CMBL(lbs_jp, POS_D, POS_F, &kp JP_LBRC, 3)          // D + F → {
-        CMBL(lbs_jp4, POS_D, POS_F, &kp JP_LBRC, 4)         // D + F → {
-        CMBL(lbs_jp5, POS_D, POS_F, &kp JP_LBRC, 5)         // D + F → {
-        
-        CMBL(rbr_jp, POS_U, POS_I, &kp JP_RBKT, 3)          // U + I → ]
-        CMBL(rbr_jp4, POS_U, POS_I, &kp JP_RBKT, 4)         // U + I → ]
-        CMBL(rbr_jp5, POS_U, POS_I, &kp JP_RBKT, 5)         // U + I → ]
-        
-        CMBL(rbs_jp, POS_J, POS_K, &kp JP_RBRC, 3)          // J + K → }
-        CMBL(rbs_jp4, POS_J, POS_K, &kp JP_RBRC, 4)         // J + K → }
-        CMBL(rbs_jp5, POS_J, POS_K, &kp JP_RBRC, 5)         // J + K → }
-
-        // その他の記号（日本語配列）
-        CMBL(bac_jp, POS_G, POS_B, &kp JP_YEN, 3)           // G + B → ¥
-        CMBL(bac_jp4, POS_G, POS_B, &kp JP_YEN, 4)          // G + B → ¥
-        CMBL(bac_jp5, POS_G, POS_B, &kp JP_YEN, 5)          // G + B → ¥
-        
-        CMBL(gra_jp, POS_H, POS_N, &kp JP_GRAVE, 3)         // H + N → `
-        CMBL(gra_jp4, POS_H, POS_N, &kp JP_GRAVE, 4)        // H + N → `
-        CMBL(gra_jp5, POS_H, POS_N, &kp JP_GRAVE, 5)        // H + N → `
-        
-        CMBL(til_jp, POS_J, POS_M, &kp JP_TILDE, 3)         // J + M → ~
-        CMBL(til_jp4, POS_J, POS_M, &kp JP_TILDE, 4)        // J + M → ~
-        CMBL(til_jp5, POS_J, POS_M, &kp JP_TILDE, 5)        // J + M → ~
 
         // ═══════════════════════════════════════════════════════════════
         //                        矢印キー（レイヤー特化）
         // ═══════════════════════════════════════════════════════════════
         
-        // レイヤー0,3での矢印キー（基本操作）
+        // レイヤー0での矢印キー（基本操作）
         CMBL(up0, POS_W, POS_E, &kp UP, 0)          // W + E → 上矢印
         CMBL(dn0, POS_S, POS_D, &kp DOWN, 0)        // S + D → 下矢印
         CMBL(lt0, POS_A, POS_D, &kp LEFT, 0)        // A + D → 左矢印
         CMBL(rt0, POS_D, POS_F, &kp RIGHT, 0)       // D + F → 右矢印
-        
+
+        // レイヤー3での矢印キー（基本操作）
         CMBL(up3, POS_W, POS_E, &kp UP, 3)          // W + E → 上矢印
         CMBL(dn3, POS_S, POS_D, &kp DOWN, 3)        // S + D → 下矢印
         CMBL(lt3, POS_A, POS_D, &kp LEFT, 3)        // A + D → 左矢印
@@ -307,5 +237,8 @@
         //                        トグルレイヤー
         // ═══════════════════════════════════════════════════════════════
         CMB4(layer3, POS_R, POS_T, POS_Y, POS_U, &tog 3)  // R + T + Y + U → レイヤー3トグル
+        CMB(cad_pan, POS_Q, POS_A, &tog 3)      // Q + A → パンモード
+        CMB(cad_orbit, POS_W, POS_S, &tog 4)    // W + S → 回転モード  
+        CMB(cad_zoom, POS_E, POS_D, &tog 5)     // E + D → ズームモード
     };
 };
