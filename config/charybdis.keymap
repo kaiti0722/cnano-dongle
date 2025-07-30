@@ -4,7 +4,6 @@
 #include <dt-bindings/zmk/pointing.h>
 #include "combos.dtsi"
 #include "behaviours.dtsi"
-#include "keys_jp.h"
 
 / {
     chosen { zmk,matrix_transform = &four_row_five_col_transform; };
@@ -44,33 +43,33 @@
             >;
         };
 
-        // Layer 3: 基本レイヤー（日本語配列用）
+        // Layer 3: 基本レイヤー（日本語配列用 - 暫定的に基本キーコード使用）
         layer_3 {
             bindings = <
-  &kp JP_Q             &kp JP_W  &kp JP_E  &kp JP_R     &kp JP_T    &kp JP_Y   &kp JP_U      &kp JP_I    &kp JP_O   &kp JP_P
-  &kp JP_A             &kp JP_S  &kp JP_D  &kp JP_F     &kp JP_G    &kp JP_H   &kp JP_J      &kp JP_K    &kp JP_L   &kp JP_MINUS
-  &z_mo4 4 JP_Z        &kp JP_X  &kp JP_C  &kp JP_V     &kp JP_B    &kp JP_N   &kp JP_M      &mkp LCLK   &mkp RCLK  &mo 5
-  &none                &none     &none     &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
+  &kp Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &kp A                &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
+  &z_mo4 4 Z           &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
+  &none                &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
             >;
         };
 
-        // Layer 4: 数字・記号レイヤー（日本語配列用）
+        // Layer 4: 数字・記号レイヤー（日本語配列用 - 基本的な調整版）
         layer_4 {
             bindings = <
-  &none    &none       &none       &none        &none        &kp JP_CARET        &kp JP_AMPS       &kp JP_DQT     &kp JP_LPAR      &kp JP_RPAR
-  &none    &none       &kp UP      &none        &none        &kp JP_YEN          &kp JP_TILDE      &kp JP_EQUAL   &kp JP_PLUS      &kp JP_ASTRK
-  &none    &kp LEFT    &kp DOWN    &kp RIGHT    &none        &kp JP_LBKT         &kp JP_AT         &kp JP_COMMA   &kp JP_PERIOD    &kp JP_FSLH
-  &none    &none       &none       &kp LC(C)    &kp LC(V)    &kp LC(LS(DOWN))    &kp LC(LS(UP))    &none          &none            &none
+  &none    &none       &none       &none        &none        &kp EQUAL           &kp CARET         &kp DQT      &kp LPAR         &kp RPAR
+  &none    &none       &kp UP      &none        &none        &kp RBKT            &kp TILDE         &kp EQUAL    &kp PLUS         &kp ASTRK
+  &none    &kp LEFT    &kp DOWN    &kp RIGHT    &none        &kp LBKT            &kp AT            &kp COMMA    &kp PERIOD       &kp FSLH
+  &none    &none       &none       &kp LC(C)    &kp LC(V)    &kp LC(LS(DOWN))    &kp LC(LS(UP))    &none        &none            &none
             >;
         };
 
         // Layer 5: ナビゲーション・ファンクションレイヤー（日本語配列用）
         layer_5 {
             bindings = <
-  &kp JP_EXCL  &kp JP_AT     &kp JP_HASH  &kp JP_DLLR         &kp JP_PRCNT         &none           &none            &none          &none            &none
-  &kp JP_N1    &kp JP_N2     &kp JP_N3    &kp JP_N4           &kp JP_N5            &none           &none            &none          &none            &kp DELETE
-  &kp JP_N6    &kp JP_N7     &kp JP_N8    &kp JP_N9           &kp JP_N0            &kp LG(LEFT)    &kp LG(RIGHT)    &kp LA(TAB)    &kp BACKSPACE    &kp F12
-  &none        &none         &none        &kp LC(LS(LEFT))    &kp LC(LS(RIGHT))    &kp LA(LEFT)    &kp RA(LEFT)     &none          &none            &none
+  &kp EXCL    &kp LBKT     &kp POUND    &kp DLLR            &kp PRCNT            &none           &none            &none          &none            &none
+  &kp N1      &kp N2       &kp N3       &kp N4              &kp N5               &none           &none            &none          &none            &kp DELETE
+  &kp N6      &kp N7       &kp N8       &kp N9              &kp N0               &kp LG(LEFT)    &kp LG(RIGHT)    &kp LA(TAB)    &kp BACKSPACE    &kp F12
+  &none       &none        &none        &kp LC(LS(LEFT))    &kp LC(LS(RIGHT))    &kp LA(LEFT)    &kp RA(LEFT)     &none          &none            &none
             >;
         };
 
