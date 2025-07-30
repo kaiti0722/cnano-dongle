@@ -56,10 +56,10 @@
         // Layer 4: 数字・記号レイヤー（日本語配列用）
         layer_4 {
             bindings = <
-  &none    &none       &none       &none        &none        &kp EQUAL           &kp LS(N6)          &kp LS(SQT)    &kp LS(N8)         &kp LS(N9)
-  &none    &none       &kp UP      &none        &none        &kp BSLH            &kp TILDE         &kp EQUAL    &kp SEMICOLON    &kp SQT
-  &none    &kp LEFT    &kp DOWN    &kp RIGHT    &none        &kp LBKT            &kp RBKT          &kp COMMA    &kp PERIOD       &kp FSLH
-  &none    &none       &none       &kp LC(C)    &kp LC(V)    &kp LC(LS(DOWN))    &kp LC(LS(UP))    &none        &none            &none
+  &kp LS(RBKT)    &kp LS(NUHS)      &none       &none        &none        &kp EQUAL           &kp LS(N6)        &kp LS(SQT)    &kp LS(N8)         &kp LS(N9)
+  &kp RBKT        &kp NUHS          &kp UP      &none        &none        &kp BSLH            &kp TILDE         &kp EQUAL    &kp SEMICOLON    &kp SQT
+  &none           &kp LEFT          &kp DOWN    &kp RIGHT    &none        &kp LBKT            &kp RBKT          &kp COMMA    &kp PERIOD       &kp FSLH
+  &none           &none             &none       &kp LC(C)    &kp LC(V)    &kp LC(LS(DOWN))    &kp LC(LS(UP))    &none        &none            &none
             >;
         };
 
