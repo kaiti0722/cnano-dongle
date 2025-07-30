@@ -4,7 +4,84 @@
 #include <dt-bindings/zmk/pointing.h>
 #include "combos.dtsi"
 #include "behaviours.dtsi"
-#include "keys_jp.h"  // 日本語配列キー定義を追加
+
+// ═══════════════════════════════════════════════════════════════
+// 日本語配列キーコード定義（keymapファイル内で直接定義）
+// ═══════════════════════════════════════════════════════════════
+
+// 基本文字キー（US配列と同じ）
+#define JP_Q Q
+#define JP_W W
+#define JP_E E
+#define JP_R R
+#define JP_T T
+#define JP_Y Y
+#define JP_U U
+#define JP_I I
+#define JP_O O
+#define JP_P P
+#define JP_A A
+#define JP_S S
+#define JP_D D
+#define JP_F F
+#define JP_G G
+#define JP_H H
+#define JP_J J
+#define JP_K K
+#define JP_L L
+#define JP_M M
+#define JP_N N
+#define JP_X X
+#define JP_C C
+#define JP_V V
+#define JP_B B
+#define JP_Z Z
+
+// 数字キー
+#define JP_N1 N1
+#define JP_N2 N2
+#define JP_N3 N3
+#define JP_N4 N4
+#define JP_N5 N5
+#define JP_N6 N6
+#define JP_N7 N7
+#define JP_N8 N8
+#define JP_N9 N9
+#define JP_N0 N0
+
+// 日本語配列特有の記号（物理キー位置に基づく）
+#define JP_MINUS MINUS                    // -
+#define JP_EQUAL LS(MINUS)               // = (Shift + -)
+#define JP_CARET EQUAL                   // ^ (=キー)
+#define JP_TILDE LS(EQUAL)               // ~ (Shift + =)
+#define JP_YEN INTERNATIONAL_3           // ¥ (国際キー3)
+#define JP_AT LEFT_BRACKET               // @ ([キー)
+#define JP_LBKT RIGHT_BRACKET            // [ (]キー)
+#define JP_LBRC LS(RIGHT_BRACKET)        // { (Shift + ])
+#define JP_RBKT BACKSLASH                // ] (\キー)
+#define JP_RBRC LS(BACKSLASH)            // } (Shift + \)
+#define JP_COLON APOSTROPHE              // : (;キー)
+#define JP_ASTRK LS(APOSTROPHE)          // * (Shift + ;)
+#define JP_SEMICOLON SEMICOLON           // ; (;キー)
+#define JP_PLUS LS(SEMICOLON)            // + (Shift + ;)
+#define JP_COMMA COMMA                   // ,
+#define JP_LT LS(COMMA)                  // < (Shift + ,)
+#define JP_PERIOD PERIOD                 // .
+#define JP_GT LS(PERIOD)                 // > (Shift + .)
+#define JP_FSLH SLASH                    // /
+#define JP_QMARK LS(SLASH)               // ? (Shift + /)
+#define JP_UNDER LS(INTERNATIONAL_1)     // _ (Shift + ろ)
+#define JP_PIPE LS(INTERNATIONAL_3)      // | (Shift + ¥)
+#define JP_SQT LS(N7)                    // ' (Shift + 7)
+#define JP_DQT LS(N2)                    // " (Shift + 2)
+#define JP_GRAVE LS(AT)                  // ` (Shift + @)
+#define JP_EXCL LS(N1)                   // ! (Shift + 1)
+#define JP_HASH LS(N3)                   // # (Shift + 3)
+#define JP_DLLR LS(N4)                   // $ (Shift + 4)
+#define JP_PRCNT LS(N5)                  // % (Shift + 5)
+#define JP_AMPS LS(N6)                   // & (Shift + 6)
+#define JP_LPAR LS(N8)                   // ( (Shift + 8)
+#define JP_RPAR LS(N9)                   // ) (Shift + 9)
 
 / {
     chosen { zmk,matrix_transform = &four_row_five_col_transform; };
@@ -44,7 +121,7 @@
             >;
         };
 
-        // Layer 3: 基本レイヤー（日本語配列用 - JP_*キーコード使用）
+        // Layer 3: 基本レイヤー（日本語配列用）
         layer_3 {
             bindings = <
   &kp JP_Q             &kp JP_W  &kp JP_E  &kp JP_R     &kp JP_T    &kp JP_Y   &kp JP_U      &kp JP_I    &kp JP_O   &kp JP_P
@@ -54,7 +131,7 @@
             >;
         };
 
-        // Layer 4: 数字・記号レイヤー（日本語配列用 - JP_*キーコード使用）
+        // Layer 4: 数字・記号レイヤー（日本語配列用）
         layer_4 {
             bindings = <
   &none    &none       &none       &none        &none        &kp JP_CARET        &kp JP_AMPS       &kp JP_DQT     &kp JP_LPAR      &kp JP_RPAR
@@ -64,7 +141,7 @@
             >;
         };
 
-        // Layer 5: ナビゲーション・ファンクションレイヤー（日本語配列用 - JP_*キーコード使用）
+        // Layer 5: ナビゲーション・ファンクションレイヤー（日本語配列用）
         layer_5 {
             bindings = <
   &kp JP_EXCL  &kp JP_AT     &kp JP_HASH  &kp JP_DLLR         &kp JP_PRCNT         &none           &none            &none          &none            &none
