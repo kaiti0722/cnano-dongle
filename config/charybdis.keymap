@@ -16,10 +16,10 @@
         // Layer 0: 基本レイヤー（自動タイピングモード付き）
         default_layer {
             bindings = <
-  &typing_key Q        &typing_key W    &typing_key E    &typing_key R       &typing_key T      &typing_key Y     &typing_key U        &typing_key I      &typing_key O     &typing_key P
-  &typing_key A        &typing_key S    &typing_key D    &typing_key F       &typing_key G      &typing_key H     &typing_key J        &typing_key K      &typing_key L     &typing_key MINUS
-  &z_typing_mo1 1 Z    &typing_key X    &typing_key C    &typing_key V       &typing_key B      &typing_key N     &typing_key M        &mkp LCLK          &mkp RCLK         &mo 2
-  &none                &none            &none            &kp LSHIFT          &kp LCTRL          &typing_key SPACE &typing_key ENTER    &none              &none             &none
+  &kp Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &kp A                &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
+  &z_typing_mo1 1 Z    &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 2
+  &none                &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
             >;
         };
 
