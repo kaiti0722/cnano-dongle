@@ -46,20 +46,20 @@
         // Layer 3: 数字・記号レイヤー（日本語配列用）
         layer_3 {
             bindings = <
-  &kp Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
-  &kp A                &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
-  &z_mo4 4 Z           &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
-  &none                &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
+  &kp Q          &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &kp A          &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
+  &z_mo4 4 Z     &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
+  &none          &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
             >;
         };
 
         // Layer 4: 数字・記号レイヤー（日本語配列用）
         layer_4 {
             bindings = <
-  &kp LS(RBKT)    &kp LS(NUHS)      &none       &none        &none        &kp EQUAL           &kp LS(N6)        &kp LS(SQT)    &kp LS(N8)         &kp LS(N9)
-  &kp RBKT        &kp NUHS          &kp UP      &none        &none        &kp BSLH            &kp TILDE         &kp EQUAL    &kp SEMICOLON    &kp SQT
-  &none           &kp LEFT          &kp DOWN    &kp RIGHT    &none        &kp LBKT            &kp RBKT          &kp COMMA    &kp PERIOD       &kp FSLH
-  &none           &none             &none       &kp LC(C)    &kp LC(V)    &kp LC(LS(DOWN))    &kp LC(LS(UP))    &none        &none            &none
+  &kp LS(RBKT)    &kp LS(NUHS)      &kp LS(EQUAL)    &kp LS(LBKT)    &kp LS(INT3)    &kp EQUAL           &kp LS(N6)        &kp LS(SQT)    &kp LS(N8)         &kp LS(N9)
+  &kp RBKT        &kp NUHS          &kp UP           &kp GRAVE       &kp INT3        &kp BSLH            &kp INT1         &kp LS(INT1)    &kp SEMICOLON    &kp SEMI
+  &none           &kp LEFT          &kp DOWN         &kp RIGHT       &none           &kp LBKT            &kp LS(SEMI)         &kp COMMA    &kp PERIOD       &kp SQT
+  &none           &none             &none            &kp LC(C)       &kp LC(V)       &kp LC(LS(DOWN))    &kp LC(LS(UP))    &none        &none            &none
             >;
         };
 
