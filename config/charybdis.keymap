@@ -48,7 +48,7 @@
             bindings = <
   &kp Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
   &kp A                &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
-  &z_mo1 1 Z           &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 2
+  &z_mo4 4 Z           &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
   &none                &none    &none    &kp LSHIFT   &kp LGUI    &kp SPACE  &kp ENTER     &none       &none      &none
             >;
         };
