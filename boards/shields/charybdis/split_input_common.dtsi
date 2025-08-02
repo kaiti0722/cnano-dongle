@@ -121,18 +121,8 @@
     
     // レイヤー1：縦スクロール（デフォルトと同じ、傾斜補正付き）
     scroll {
-      layers = <1 4 5>;
+      layers = <1 2 4 5>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
-                        <&left_x_scaler 1 100>,
-                        <&left_y_scaler 0 100>,
-                        <&scroll_y_scaler 1 120>,
-                        <&zip_xy_to_scroll_mapper>;
-    };
-    
-    // レイヤー2：横スクロール + 傾斜補正
-    horizontal_scroll {
-      layers = <2>;
-      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
                         <&left_x_scaler 1 100>,
                         <&left_y_scaler 0 100>,
                         <&scroll_y_scaler 1 120>,
