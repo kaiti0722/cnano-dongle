@@ -16,7 +16,7 @@
         // Layer 0: 基本レイヤー（英語配列用）
         default_layer {
             bindings = <
-  &kp Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &q_mo9 9 Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
   &kp A                &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
   &z_mo1 1 Z           &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 2
   &none                &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
@@ -46,7 +46,7 @@
         // Layer 3: 基本レイヤー（MAC配列用）
         layer_3 {
             bindings = <
-  &kp Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &q_mo9 9 Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
   &kp A                &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
   &z_mo4 4 Z           &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
   &none                &none    &none    &kp LSHIFT   &kp LGUI    &kp SPACE  &kp ENTER     &none       &none      &none
@@ -76,7 +76,7 @@
         // Layer 6: 数字・記号レイヤー（日本語配列用）
         layer_6 {
             bindings = <
-  &kp Q          &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &q_mo9 9 Q          &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
   &kp A          &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
   &z_mo4 4 Z     &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 5
   &none          &none    &none    &kp LSHIFT   &kp LCTRL   &kp SPACE  &kp ENTER     &none       &none      &none
