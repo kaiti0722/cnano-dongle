@@ -96,7 +96,7 @@
     
     // レイヤー1,2で縦スクロール（傾斜補正 + 感度調整）
     scroll {
-      layers = <2 4 5>;
+      layers = <2 4 5 7 8>;
       input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
                         <&right_x_scaler 0 100>,      // 傾斜補正
                         <&right_y_scaler 50 100>,      // 傾斜補正
