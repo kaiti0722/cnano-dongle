@@ -96,7 +96,7 @@
         // Layer 8: ナビゲーション・ファンクションレイヤー（日本語配列用）
         layer_8 {
             bindings = <
-  &kp EXCL    &kp LBKT    &kp POUND    &kp DLLR            &kp PRCNT            &none           &none            &none          &none            &none
+  &kp EXCL    &kp LBKT    &kp POUND    &kp DLLR            &kp PRCNT            &none           &none            &none          &kp LS(F2)            &kp LC(LS(F2))
   &kp N1      &kp N2    &kp N3       &kp N4              &kp N5               &none           &none            &none          &none            &kp DELETE
   &kp N6      &kp N7    &kp N8       &kp N9              &kp N0               &kp LG(LEFT)    &kp LG(RIGHT)    &kp LA(TAB)    &kp BACKSPACE    &kp F12
   &none       &none     &none        &kp LC(LS(LEFT))    &kp LC(LS(RIGHT))    &kp LA(LEFT)    &kp RA(LEFT)     &none          &none            &none
