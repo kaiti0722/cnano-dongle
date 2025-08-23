@@ -116,10 +116,10 @@
         // Layer_10: 基本レイヤー（英語配列用）
         layer_10 {
             bindings = <
-  &q_mo9 9 Q                &kp W    &kp E    &kp R        &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
-  &kp A                &kp S    &kp D    &kp F        &kp G       &kp H      &kp J         &kp K       &kp L      &kp MINUS
-  &kp LCTRL           &kp X    &kp C    &kp V        &kp B       &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 12
-  &none                &none    &none    &kp SPACE   &kp LSHIFT   &mo 11  &kp ENTER     &none       &none      &none
+  &kp Q        &kp W       &kp E    &kp ESC      &kp T       &kp Y      &kp U         &kp I       &kp O      &kp P
+  &kp A        &kp S       &kp D    &kp F3       &kp F5      &kp H      &kp J         &kp K       &kp L      &kp MINUS
+  &kp LCTRL    &kp LSHIFT  &kp C    &kp V        &kp SLASH   &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 12
+  &none        &none       &none    &kp SPACE    &kp ENTER   &mo 11  &kp ENTER     &none       &none      &none
             >;
         };
 
