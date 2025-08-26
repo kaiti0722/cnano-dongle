@@ -119,7 +119,7 @@
   &kp ESC        &kp Q       &kp W    &kp E      &kp F3       &kp Y      &kp U         &kp I       &kp O      &kp P
   &kp LCTRL        &kp A       &kp S    &kp D       &kp F5      &kp H      &kp J         &kp K       &kp L      &kp MINUS
   &kp LSHIFT    &kp ENTER  &kp C    &kp V        &kp SLASH   &kp N      &kp M         &mkp LCLK   &mkp RCLK  &mo 12
-  &none        &none       &none    &kp SPACE    &kp ENTER  &mo 11  &kp ENTER     &none       &none      &none
+  &none        &none       &none    &kp ENTER    &kpSPACE   &mo 11  &kp ENTER     &none       &none      &none
             >;
         };
 
