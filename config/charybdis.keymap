@@ -26,7 +26,7 @@
         layer_1 {
             bindings = <
   &kp ESC          &kp UP           &kp TILDE        &kp GRAVE        &kp PIPE         &kp CARET        &kp AMPS         &kp ASTRK        &kp LPAR         &kp RPAR
-  &kp LEFT         &kp DOWN         &kp RIGHT        &kp LA(GRAVE)    &kp BSLH         &kp COLON        &kp SEMI         &kp DQT          &kp SQT          &kp EQUAL
+  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LA(GRAVE)  &kp BSLH  &kp COLON  &kp SEMI  &kp DQT  &kp SQT  &kp EQUAL
   &none            &mo 9            &kp X            &kp LT           &kp GT           &kp LBKT         &kp RBKT         &kp COMMA        &kp PERIOD       &kp PLUS
   &none            &none            &none            &kp COMMA        &kp PERIOD       &kp LBRC         &kp RBRC         &none            &none            &none
             >;
@@ -47,7 +47,7 @@
             bindings = <
   &kp Q            &kp W            &kp E            &kp R            &kp T            &kp Y            &kp U            &kp I            &kp O            &kp P
   &kp A            &kp S            &kp D            &kp F            &kp G            &kp H            &kp J            &kp K            &kp L            &kp MINUS
-  &mo 1            &kp Z            &kp C            &kp V            &kp B            &kp N            &kp M            &mkp LCLK        &mkp RCLK        &mo 2
+  &mo 4            &kp Z            &kp C            &kp V            &kp B            &kp N            &kp M            &mkp LCLK        &mkp RCLK        &mo 5
   &none            &none            &none            &kp LSHIFT       &kp LCTRL        &kp SPACE        &kp ENTER        &none            &none            &none
             >;
         };
@@ -77,7 +77,7 @@
             bindings = <
   &kp Q            &kp W            &kp E            &kp R            &kp T            &kp Y            &kp U            &kp I            &kp O            &kp P
   &kp A            &kp S            &kp D            &kp F            &kp G            &kp H            &kp J            &kp K            &kp L            &kp MINUS
-  &mo 1            &kp Z            &kp C            &kp V            &kp B            &kp N            &kp M            &mkp LCLK        &mkp RCLK        &mo 2
+  &mo 7            &kp Z            &kp C            &kp V            &kp B            &kp N            &kp M            &mkp LCLK        &mkp RCLK        &mo 8
   &none            &none            &none            &kp LSHIFT       &kp LCTRL        &kp SPACE        &kp ENTER        &none            &none            &none
             >;
         };
@@ -85,18 +85,18 @@
         // Layer 7: 数字・記号レイヤー（日本語配列用）
         layer_7 {
             bindings = <
-  &kp ESC          &kp UP           &kp TILDE        &kp GRAVE        &kp PIPE         &kp CARET        &kp AMPS         &kp ASTRK        &kp LPAR         &kp RPAR
-  &kp LEFT         &kp DOWN         &kp RIGHT        &kp LA(GRAVE)    &kp BSLH         &kp COLON        &kp SEMI         &kp DQT          &kp SQT          &kp EQUAL
-  &none            &mo 9            &kp X            &kp LT           &kp GT           &kp LBKT         &kp RBKT         &kp COMMA        &kp PERIOD       &kp PLUS
-  &none            &none            &none            &kp COMMA        &kp PERIOD       &kp LBRC         &kp RBRC         &none            &none            &none
+  &kp ESC          &kp UP           &kp LS(EQUAL)    &kp LS(LBKT)     &kp LS(INT3)     &kp EQUAL        &kp LS(N6)       &kp LS(SQT)      &kp LS(N8)       &kp LS(N9)
+  &kp LEFT         &kp DOWN         &kp RIGHT        &kp GRAVE        &kp INT3         &kp COLON        &kp SEMI         &kp LS(N2)       &kp LS(N7)       &kp LS(INT1)
+  &none            &mo 9            &kp X            &kp LT           &kp GT           &kp RBKT         &kp NUHS         &kp COMMA        &kp PERIOD       &kp LS(SEMI)
+  &none            &none            &none            &kp COMMA        &kp PERIOD       &kp LBRC         &kp LS(NUHS)     &none            &none            &none
             >;
         };
 
         // Layer 8: ナビゲーション・ファンクションレイヤー（日本語配列用）
         layer_8 {
             bindings = <
-  &kp EXCL         &kp AT           &kp POUND        &kp DLLR         &kp PRCNT         &kp INS         &kp HOME         &kp PG_UP      &kp LS(F2)       &kp LC(LS(F2))
-  &kp TAB          &kp DEL          &none            &none            &none             &kp DEL         &kp END          &kp PG_DN      &kp LC(C)        &kp LC(V)
+  &kp LS(N1)         &kp LBKT           &kp LS(N3)        &kp LS(N4)         &kp LS(N5)         &kp INS         &kp HOME         &kp PG_UP      &kp LS(F2)       &kp LC(LS(F2))
+  &kp TAB          &kp DEL          &none            &none            &kp INT1             &kp DEL         &kp END          &kp PG_DN      &kp LC(C)        &kp LC(V)
   &kp LWIN         &kp ALT          &none            &kp LC(LS(LEFT)) &kp LC(LS(RIGHT)) &kp LG(LEFT)    &kp LG(RIGHT)    &kp LA(TAB)    &kp BACKSPACE    &none
   &none            &none            &none            &kp LC(LS(UP))   &kp LC(LS(DOWN))  &kp LA(LEFT)    &kp RA(LEFT)     &none          &none            &none
             >;
