@@ -37,8 +37,8 @@
             bindings = <
   &kp EXCL         &kp AT           &kp POUND        &kp DLLR         &kp PRCNT        &kp INS          &kp HOME         &kp PG_UP        &kp LS(F2)       &kp LC(LS(F2))
   &kp TAB          &kp DEL          &none            &none            &none            &kp DEL          &kp END          &kp PG_DN        &kp LC(C)        &kp LC(V)
-  &kp LGUI         &kp LALT         &none            &kp LC(LS(LEFT)) &kp LC(LS(RIGHT)) &kp LG(LEFT)     &kp LG(RIGHT)    &kp LA(TAB)      &kp BACKSPACE    &none
-  &none            &none            &none            &kp LC(LS(UP))   &kp LC(LS(DOWN)) &kp LA(LEFT)     &kp RA(LEFT)     &none            &none            &none
+  &kp LGUI         &kp LALT         &none            &kp LC(LS(LEFT)) &kp LC(LS(RIGHT)) &kp LG(LEFT)    &kp LG(RIGHT)    &kp LA(TAB)      &kp BACKSPACE    &none
+  &none            &none            &none            &kp LC(LS(DOWN)) &kp LC(LS(UP))   &kp LA(LEFT)     &kp RA(LEFT)     &none            &none            &none
             >;
         };
 
@@ -67,8 +67,8 @@
             bindings = <
   &kp EXCL         &kp AT           &kp POUND        &kp DLLR         &kp PRCNT        &kp INS          &kp HOME         &kp PG_UP        &kp LS(F2)       &kp LC(LS(F2))
   &kp TAB          &kp DEL          &none            &none            &none            &kp DEL          &kp END          &kp PG_DN        &kp LC(C)        &kp LC(V)
-  &kp LCTRL        &kp LALT         &none            &kp LC(LS(LEFT)) &kp LC(LS(RIGHT)) &kp LG(LEFT)     &kp LG(RIGHT)    &kp LA(TAB)      &kp BACKSPACE    &none
-  &none            &none            &none            &kp LC(LS(UP))   &kp LC(LS(DOWN)) &kp LA(LEFT)     &kp RA(LEFT)     &none            &none            &none
+  &kp LCTRL        &kp LALT         &none            &kp LC(LS(LEFT)) &kp LC(LS(RIGHT)) &kp LG(LEFT)    &kp LG(RIGHT)    &kp LA(TAB)      &kp BACKSPACE    &none
+  &none            &none            &none            &kp LC(LS(DOWN)) &kp LC(LS(UP))   &kp LA(LEFT)     &kp RA(LEFT)     &none            &none            &none
             >;
         };
 
@@ -86,9 +86,9 @@
         layer_7 {
             bindings = <
   &kp ESC          &kp UP           &kp LS(EQUAL)    &kp LS(LBKT)     &kp LS(INT3)     &kp EQUAL        &kp LS(N6)       &kp LS(SQT)      &kp LS(N8)       &kp LS(N9)
-  &kp LEFT         &kp DOWN         &kp RIGHT        &kp GRAVE        &kp INT3         &kp COLON        &kp SEMI         &kp LS(N2)       &kp LS(N7)       &kp LS(INT1)
+  &kp LEFT         &kp DOWN         &kp RIGHT        &kp GRAVE        &kp INT3         &kp SQT          &kp SEMI         &kp LS(N2)       &kp LS(N7)       &kp LS(INT1)
   &none            &mo 9            &kp X            &kp LT           &kp GT           &kp RBKT         &kp NUHS         &kp LS(SEMI)     &kp SLASH        &kp LS(SLASH)
-  &none            &none            &none            &kp COMMA        &kp PERIOD       &kp LBRC         &kp LS(NUHS)     &none            &none            &none
+  &none            &none            &none            &kp COMMA        &kp PERIOD       &kp LS(RBKT)     &kp LS(NUHS)     &none            &none            &none
             >;
         };
 
@@ -97,8 +97,8 @@
             bindings = <
   &kp LS(N1)       &kp LBKT         &kp LS(N3)       &kp LS(N4)       &kp LS(N5)       &kp INS          &kp HOME         &kp PG_UP        &kp LS(F2)       &kp LC(LS(F2))
   &kp TAB          &kp DEL          &none            &none            &kp INT1         &kp DEL          &kp END          &kp PG_DN        &kp LC(C)        &kp LC(V)
-  &kp LGUI         &kp LALT         &none            &kp LC(LS(LEFT)) &kp LC(LS(RIGHT)) &kp LG(LEFT)     &kp LG(RIGHT)    &kp LA(TAB)      &kp BACKSPACE    &none
-  &none            &none            &none            &kp LC(LS(UP))   &kp LC(LS(DOWN)) &kp LA(LEFT)     &kp RA(LEFT)     &none            &none            &none
+  &kp LGUI         &kp LALT         &none            &kp LC(LS(LEFT)) &kp LC(LS(RIGHT)) &kp LG(LEFT)    &kp LG(RIGHT)    &kp LA(TAB)      &kp BACKSPACE    &none
+  &none            &none            &none            &kp LC(LS(DOWN)) &kp LC(LS(UP))   &kp LA(LEFT)     &kp RA(LEFT)     &none            &none            &none
             >;
         };
 
