@@ -26,7 +26,7 @@
         layer_1 {
             bindings = <
   &kp ESC          &kp UP           &kp TILDE        &kp GRAVE        &kp PIPE         &kp CARET        &kp AMPS         &kp ASTRK        &kp LPAR         &kp RPAR
-  &kp LEFT         &kp DOWN         &kp RIGHT        &kp LC(LSHIFT)   &kp BSLH         &kp COLON        &kp SEMI         &kp DQT          &kp SQT          &kp EQUAL
+  &kp LEFT         &kp DOWN         &kp RIGHT        &kp LC(SPACE)   &kp BSLH         &kp COLON        &kp SEMI         &kp DQT          &kp SQT          &kp EQUAL
   &none            &mo 9            &kp X            &kp LT           &kp GT           &kp LBKT         &kp RBKT         &kp PLUS         &kp SLASH        &kp QMARK
   &none            &none            &none            &kp COMMA        &kp PERIOD       &kp LBRC         &kp RBRC         &none            &none            &none
             >;
