@@ -20,7 +20,7 @@
             bindings = <&kp N0 &kp N7 &kp N2 &kp N2>;
         };
     };
-}
+};
 
  /{
 
