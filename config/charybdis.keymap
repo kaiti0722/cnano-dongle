@@ -8,21 +8,19 @@
     chosen { zmk,matrix_transform = &four_row_five_col_transform; };
 };
 
-/ {
+ / {
     macros {
-        /* 1キーで "0 7 2 2" を順にタップ送出 */
-        ZMK_MACRO(M_0722,
-            wait-ms = <0>;      /* 押下開始までの待ち(不要なら 0) */
-            tap-ms  = <30>;     /* 各キーの押下長。IMEがあるなら 25〜40 を目安に */
-            bindings = <
-                &kp N0
-                &kp N7
-                &kp N2
-                &kp N2
-            >;
-        );
+        compatible = "zmk,macros";
+
+        m_0722: m_0722 {
+            label = "M_0722";
+            /* IMEで取りこぼす場合は tap-ms を 40〜60 に調整 */
+            wait-ms = <0>;
+            tap-ms  = <30>;
+            bindings = <&kp N0 &kp N7 &kp N2 &kp N2>;
+        };
     };
-};
+}
 
  /{
 
