@@ -8,7 +8,24 @@
     chosen { zmk,matrix_transform = &four_row_five_col_transform; };
 };
 
+/ {
+    macros {
+        /* 1キーで "0 7 2 2" を順にタップ送出 */
+        ZMK_MACRO(M_0722,
+            wait-ms = <0>;      /* 押下開始までの待ち(不要なら 0) */
+            tap-ms  = <30>;     /* 各キーの押下長。IMEがあるなら 25〜40 を目安に */
+            bindings = <
+                &kp N0
+                &kp N7
+                &kp N2
+                &kp N2
+            >;
+        );
+    };
+};
+
  /{
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -27,8 +44,8 @@
             bindings = <
   &kp ESC         &kp DEL          &kp N1           &kp N2           &kp N3         &kp LC(C)        &kp LC(V)         &kp UP           &kp LS(F2)       &kp LC(LS(F2))
   &kp TAB         &kp LS(TAB)      &kp N4           &kp N5           &kp N6         &kp LC(A)        &kp LEFT          &kp DOWN         &kp RIGHT        &mo 9
-  &kp LGUI        &kp LALT         &kp N7           &kp N8           &kp N9         &kp LA(LEFT)     &kp LA(RIGHT)     &kp LC(X)        &kp BACKSPACE    &none
-  &none           &none            &none            &kp N0           &kp COMMA      &kp PERIOD       &kp MINUS         &none            &none            &none
+  &kp LGUI        &kp LALT         &kp N7           &kp N8           &kp N9         &kp COMMA        &kp PERIOD        &kp LC(X)        &kp BACKSPACE    &none
+  &none           &none            &none            &kp N0           &M_0722        &kp LA(LEFT)     &kp LA(RIGHT)     &none            &none            &none
             >;
         };
 
@@ -36,7 +53,7 @@
         layer_2 {
             bindings = <
   &kp EXCL         &kp AT           &kp POUND        &kp DLLR         &kp PRCNT        &kp CARET        &kp AMPS         &kp ASTRK        &kp LPAR        &kp RPAR
-  &kp COLON        &kp SEMI         &kp EQUAL        &kp DQT          &kp SQT          &kp GRAVE        &kp TILDE        &kp INT3         &none           &none
+  &kp COLON        &kp SEMI         &kp EQUAL        &kp DQT          &kp SQT          &kp GRAVE        &kp TILDE        &kp INT3         &kp MINUS       &none
   &kp QMARK        &kp SLASH        &kp UNDER        &kp LBKT         &kp RBKT         &kp BSLH         &kp PIPE         &kp LT           &kp GT          &mo 9
   &none            &none            &none            &kp LBRC         &kp RBRC         &kp LG(LEFT)     &kp LG(RIGHT)    &none            &none           &none
             >;
@@ -57,8 +74,8 @@
             bindings = <
   &kp ESC         &kp DEL          &kp N1           &kp N2           &kp N3         &kp LC(C)        &kp LC(V)         &kp UP           &kp LS(F2)       &kp LC(LS(F2))
   &kp TAB         &kp INS          &kp N4           &kp N5           &kp N6         &kp LC(A)        &kp LEFT          &kp DOWN         &kp RIGHT        &mo 9
-  &kp LGUI        &kp LALT         &kp N7           &kp N8           &kp N9         &kp LA(LEFT)     &kp LA(RIGHT)     &kp LC(X)        &kp BACKSPACE    &none
-  &none           &none            &none            &kp N0           &kp COMMA      &kp PERIOD       &kp MINUS         &none            &none            &none
+  &kp LGUI        &kp LALT         &kp N7           &kp N8           &kp N9         &kp COMMA        &kp PERIOD        &kp LC(X)        &kp BACKSPACE    &none
+  &none           &none            &none            &kp N0           &M_0722        &kp LA(LEFT)     &kp LA(RIGHT)     &none            &none            &none
             >;
         };
 
@@ -66,7 +83,7 @@
         layer_5 {
             bindings = <
   &kp EXCL         &kp AT           &kp POUND        &kp DLLR         &kp PRCNT        &kp CARET        &kp AMPS         &kp ASTRK        &kp LPAR        &kp RPAR
-  &kp COLON        &kp SEMI         &kp EQUAL        &kp DQT          &kp SQT          &kp GRAVE        &kp TILDE        &kp INT3         &none           &none
+  &kp COLON        &kp SEMI         &kp EQUAL        &kp DQT          &kp SQT          &kp GRAVE        &kp TILDE        &kp INT3         &kp MINUS       &none
   &kp QMARK        &kp SLASH        &kp UNDER        &kp LBKT         &kp RBKT         &kp BSLH         &kp PIPE         &kp LT           &kp GT          &mo 9
   &none            &none            &none            &kp LBRC         &kp RBRC         &kp LG(LEFT)     &kp LG(RIGHT)    &none            &none           &none
             >;
@@ -87,8 +104,8 @@
             bindings = <
   &kp ESC         &kp DEL          &kp N1           &kp N2           &kp N3         &kp LC(C)        &kp LC(V)         &kp UP           &kp LS(F2)       &kp LC(LS(F2))
   &kp TAB         &kp INS          &kp N4           &kp N5           &kp N6         &kp LC(A)        &kp LEFT          &kp DOWN         &kp RIGHT        &mo 9
-  &kp LGUI        &kp LALT         &kp N7           &kp N8           &kp N9         &kp LA(LEFT)     &kp LA(RIGHT)     &kp LC(X)        &kp BACKSPACE    &none
-  &none           &none            &none            &kp N0           &kp COMMA      &kp PERIOD       &kp MINUS         &none            &none            &none
+  &kp LGUI        &kp LALT         &kp N7           &kp N8           &kp N9         &kp COMMA        &kp PERIOD        &kp LC(X)        &kp BACKSPACE    &none
+  &none           &none            &none            &kp N0           &M_0722        &kp LA(LEFT)     &kp LA(RIGHT)     &none            &none            &none
             >;
         };
 
@@ -96,7 +113,7 @@
         layer_8 {
             bindings = <
   &kp LS(N1)       &kp LBKT         &kp LS(N3)       &kp LS(N4)       &kp LS(N5)       &kp EQUAL        &kp LS(N6)       &kp LS(SQT)      &kp LS(N8)      &kp LS(N9)
-  &kp SQT          &kp SEMI         &kp LS(MINUS)    &kp LS(N2)       &kp LS(N7)       &kp GRAVE        &kp LS(EQUAL)    &kp INT3         &none           &none
+  &kp SQT          &kp SEMI         &kp LS(MINUS)    &kp LS(N2)       &kp LS(N7)       &kp GRAVE        &kp LS(EQUAL)    &kp INT3         &kp MINUS       &none
   &kp LS(SLASH)    &kp SLASH        &kp LS(INT1)     &kp RBKT         &kp NUHS         &kp INT1         &kp LS(INT3)     &kp LS(COMMA)    &kp LS(PERIOD)  &mo 9
   &none            &none            &none            &kp LS(RBKT)     &kp LS(NUHS)     &kp LG(LEFT)     &kp LG(RIGHT)    &none            &none           &none
             >;
