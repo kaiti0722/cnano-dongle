@@ -34,7 +34,6 @@
   &kp A            &kp S            &kp D            &kp F            &kp G            &kp H            &kp J            &kp K            &kp L            &mo 2
   &kp Z            &kp X            &kp C            &kp V            &kp B            &kp N            &kp M            &mkp LCLK        &mkp RCLK        &mo 1
   &none            &kp MINUS        &kp LSHIFT       &kp LCTRL        &kp GRAVE        &kp COMMA        &kp SPACE        &kp ENTER        &kp PERIOD       &none
-       &none
             >;
         };
 
