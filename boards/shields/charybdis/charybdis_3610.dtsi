@@ -3,7 +3,7 @@
 #define INPUT_EV_ABS 0x03               /**< Absolute coordinate event */
 #define INPUT_EV_MSC 0x04               /**< Miscellaneous event */
 #define INPUT_EV_VENDOR_START 0xf0      /**< Vendor specific event start */
-#define INPUT_EV_VENDOR_STOP 0xff       /**< Vendor specific event stop */
+#define INPUT_EV_VENDOR_STOP 0xff      /**< Vendor specific event stop */
 
 #define INPUT_REL_X 0x00                /**< Relative X coordinate */
 #define INPUT_REL_Y 0x01                /**< Relative Y coordinate */
@@ -40,10 +40,6 @@
 
     trackball: trackball@0 {
         status = "okay";
-        /* 【変更】compatible: pixart,pmw3610 → pixart,pmw3610-alt
-           理由: Zephyr 4.1に本家PMW3610ドライバが追加され旧名が衝突。
-           badjeffドライバ側が-altにリネームしたのに合わせる。
-           irq-gpios等のプロパティ体系は-alt側がそのまま維持しているので他は無変更 */
         compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
@@ -52,11 +48,15 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        /* force-awake は前回の変更どおり削除のまま(rest mode有効化) */
+        /* 【変更】force-awake復活
+           理由: 新(-alt)ドライバではアクティビティ連動になっており、
+           キー押下でZMKがACTIVEになった瞬間にセンサーを強制起床、
+           無操作30秒(IDLE_TIMEOUT)でrest modeに戻す。
+           「キーを押したらボールが起きる」を実現しつつ放置中は省電力 */
+        force-awake;
     };
     trackball2: trackball2@0 {
         status = "okay";
-        /* 【変更】compatible: pixart,pmw3610-alt(理由は上と同じ) */
         compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
@@ -65,5 +65,7 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
+        /* 【変更】force-awake復活(理由は上と同じ) */
+        force-awake;
     };
 };
