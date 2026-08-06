@@ -40,7 +40,11 @@
 
     trackball: trackball@0 {
         status = "okay";
-        compatible = "pixart,pmw3610";
+        /* 【変更】compatible: pixart,pmw3610 → pixart,pmw3610-alt
+           理由: Zephyr 4.1に本家PMW3610ドライバが追加され旧名が衝突。
+           badjeffドライバ側が-altにリネームしたのに合わせる。
+           irq-gpios等のプロパティ体系は-alt側がそのまま維持しているので他は無変更 */
+        compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&xiao_d 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // MOT→D4
@@ -48,15 +52,12 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        /* 【変更】force-awake; を削除
-           理由: センサーを常時RUNモード固定するため、.conf側の
-           REST1/REST3設定が無効化されていた。削除でrest mode復活。
-           RUN_DOWNSHIFT_TIME_MS=2000により操作後2秒は全速維持されるので
-           応答性への影響は最小 */
+        /* force-awake は前回の変更どおり削除のまま(rest mode有効化) */
     };
     trackball2: trackball2@0 {
         status = "okay";
-        compatible = "pixart,pmw3610";
+        /* 【変更】compatible: pixart,pmw3610-alt(理由は上と同じ) */
+        compatible = "pixart,pmw3610-alt";
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&xiao_d 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // MOT→D4
@@ -64,6 +65,5 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        /* 【変更】force-awake; を削除(理由は上と同じ) */
     };
 };
