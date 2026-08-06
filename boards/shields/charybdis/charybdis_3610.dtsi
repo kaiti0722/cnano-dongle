@@ -48,7 +48,11 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        force-awake;
+        /* 【変更】force-awake; を削除
+           理由: センサーを常時RUNモード固定するため、.conf側の
+           REST1/REST3設定が無効化されていた。削除でrest mode復活。
+           RUN_DOWNSHIFT_TIME_MS=2000により操作後2秒は全速維持されるので
+           応答性への影響は最小 */
     };
     trackball2: trackball2@0 {
         status = "okay";
@@ -60,6 +64,6 @@
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        force-awake;
+        /* 【変更】force-awake; を削除(理由は上と同じ) */
     };
 };
