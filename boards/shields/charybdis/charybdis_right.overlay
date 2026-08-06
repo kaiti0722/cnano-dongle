@@ -37,3 +37,9 @@
 &trackball_split2 { 
 	status = "disabled"; 
 };
+
+/* 【変更】Zephyr 4.1対応: CONFIG_NFCT_PINS_AS_GPIOS廃止の代替。
+   kscanの列がP0.09/P0.10(NFCピン)を使っているため必須 */
+&uicr {
+    nfct-pins-as-gpios;
+};
