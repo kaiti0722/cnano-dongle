@@ -22,8 +22,12 @@
     status = "okay";
 };
 
-// pro_micro_i2cをXiao BLEのi2c0に置き換え
-&i2c0 {
+/* 【変更】&i2c0 → &i2c1
+   理由: Zephyr 4.1の新xiao_bleボード定義では、XIAO標準のSDA/SCLピン(D4/D5)が
+   i2c1としてpinctrl設定済みで定義される(旧定義ではi2c0だった)。
+   i2c0はpinctrl未設定の裸ノードのため、有効化すると
+   「pinctrl-0 is required」エラーになる。物理配線は同じなので接続変更は不要 */
+&i2c1 {
     status = "okay";
     
     oled: ssd1306@3c {
